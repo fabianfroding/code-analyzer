@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\netcoreapp3.1\
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\
 CodeAnalyzer
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+DEBUG;TRACE
 C:\Users\Fabian\Projects\CodeAnalyzer\App.xaml
 11151548125
 
-51496605183
-1921654412462
+6-1482322009
+14-1290796308
 MainWindow.xaml;
 
-True
+False
 

@@ -1,5 +1,0 @@
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\netcoreapp3.1\CodeAnalyzer.csprojAssemblyReference.cache
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\netcoreapp3.1\MainWindow.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\netcoreapp3.1\App.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\netcoreapp3.1\CodeAnalyzer_MarkupCompile.cache
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\netcoreapp3.1\CodeAnalyzer_MarkupCompile.lref

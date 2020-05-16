@@ -1,0 +1,14 @@
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\CodeAnalyzer.exe.config
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\CodeAnalyzer.exe
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\CodeAnalyzer.pdb
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csprojAssemblyReference.cache
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\MainWindow.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\App.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer_MarkupCompile.cache
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer_MarkupCompile.lref
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\MainWindow.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.g.resources
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.Properties.Resources.resources
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.GenerateResource.cache
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.exe
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.pdb

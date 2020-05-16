@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,18 +21,16 @@ namespace CodeAnalyzer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static CodeFinder CODE_FINDER;
-
         public MainWindow()
         {
             InitializeComponent();
-            CODE_FINDER = new CodeFinder();
         }
 
         private void BTN_Analyze_Click(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog fff = new FolderBrowserDialog();
-            
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowDialog();
+            ClassFinder.FindClassesInDirectory(fbd.SelectedPath);
         }
     }
 }
