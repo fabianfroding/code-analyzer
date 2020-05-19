@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Diagnostics;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -31,6 +32,7 @@ namespace CodeAnalyzer
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
             ClassFinder.FindClassesInDirectory(fbd.SelectedPath);
+            Debug.WriteLine("Lines in file: " + ClassFinder.CountLinesInFile(""));
         }
     }
 }
