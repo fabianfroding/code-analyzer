@@ -3,9 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dvc="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         xmlns:local="clr-namespace:CodeAnalyzer"
         mc:Ignorable="d"
         Title="Graph" Height="450" Width="800">
-    <Grid>
+    <!--
+    <Window.DataContext>
+        <local:Graph/>
+    </Window.DataContext>
+    -->
+    <Grid x:Name="grd">
+        <dvc:Chart x:Name="chart">
+            <dvc:Chart.Axes>
+                <dvc:CategoryAxis Orientation="X">
+                    <dvc:CategoryAxis.AxisLabelStyle>
+                        <Style x:Name="labelStyleX1" TargetType="Control">
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="LayoutTransform" >
+                                <Setter.Value>
+                                    <RotateTransform  Angle="-45" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Style>
+                    </dvc:CategoryAxis.AxisLabelStyle>
+                </dvc:CategoryAxis>
+            </dvc:Chart.Axes>
+            <dvc:Chart.Series>
+                <dvc:ColumnSeries ItemsSource="{Binding Line1}" 
+                           DependentValuePath="Value" 
+                           IndependentValuePath="Col">
+                    <dvc:ColumnSeries.LegendItemStyle >
+                        <Style TargetType="dvc:LegendItem">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </Style>
+                    </dvc:ColumnSeries.LegendItemStyle>
+                    <dvc:ColumnSeries.DependentRangeAxis>
+                        <dvc:LinearAxis Minimum="0" Maximum="200000" Orientation="Y"/>
+                    </dvc:ColumnSeries.DependentRangeAxis>
+                </dvc:ColumnSeries>
+                <dvc:LineSeries ItemsSource="{Binding Line1}" 
+                           DependentValuePath="Value" 
+                           IndependentValuePath="Col">
+                    <dvc:LineSeries.LegendItemStyle >
+                        <Style TargetType="dvc:LegendItem">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </Style>
+                    </dvc:LineSeries.LegendItemStyle>
+                </dvc:LineSeries>
+            </dvc:Chart.Series>
+        </dvc:Chart>
     </Grid>
 </Window>

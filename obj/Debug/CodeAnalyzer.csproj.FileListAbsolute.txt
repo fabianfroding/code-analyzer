@@ -12,3 +12,9 @@ C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.Properties.Resource
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.GenerateResource.cache
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.exe
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.pdb
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Graph.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Graph.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.CopyComplete

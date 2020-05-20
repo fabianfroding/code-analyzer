@@ -34,5 +34,12 @@ namespace CodeAnalyzer
             ClassFinder.FindClassesInDirectory(fbd.SelectedPath);
             Debug.WriteLine("Lines in file: " + ClassFinder.CountLinesInFile(""));
         }
+
+        private void BTN_Graph_Click(object sender, RoutedEventArgs e)
+        {
+            Graph graphWindow = new Graph();
+            graphWindow.Show();
+            this.Close();
+        }
     }
 }
