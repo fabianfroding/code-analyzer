@@ -27,11 +27,17 @@ namespace CodeAnalyzer
         public static int CountLinesInFile(string filePath)
         {
             List<string> lines = File.ReadAllLines(temp).ToList();
+            int lineCount = 0;
+
             foreach (string line in lines)
             {
+                if (line != "")
+                {
+                    lineCount++;
+                }
                 Debug.WriteLine(line);
             }
-            return lines.Count();
+            return lineCount;
         }
     }
 }
