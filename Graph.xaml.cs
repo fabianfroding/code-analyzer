@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls.DataVisualization.Charting;
 
@@ -22,6 +23,7 @@ namespace CodeAnalyzer
 
         public void DrawBarGraph(List<KeyValuePair<string, int>> values)
         {
+            values = values.OrderBy(x => x.Value).ToList();
             ((BarSeries)chart.Series[0]).ItemsSource = values.ToArray();
         }
     }
