@@ -28,7 +28,7 @@ namespace CodeAnalyzer
 
         public void DrawHistogram()
         {
-            ((ColumnSeries)chart.Series[0]).ItemsSource =
+            ((BarSeries)chart.Series[0]).ItemsSource =
                 new KeyValuePair<string, int>[]{
                 new KeyValuePair<string,int>("Information Holder", 12),
                 new KeyValuePair<string,int>("Structurer", 25),

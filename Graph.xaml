@@ -7,50 +7,20 @@
         xmlns:local="clr-namespace:CodeAnalyzer"
         mc:Ignorable="d"
         Title="Graph" Height="450" Width="800">
-    <!--
+    <!-- Causes stackoverflow exception
     <Window.DataContext>
         <local:Graph/>
     </Window.DataContext>
     -->
     <Grid x:Name="grd">
-        <dvc:Chart x:Name="chart">
-            <dvc:Chart.Axes>
-                <dvc:CategoryAxis Orientation="X">
-                    <dvc:CategoryAxis.AxisLabelStyle>
-                        <Style x:Name="labelStyleX1" TargetType="Control">
-                            <Setter Property="FontSize" Value="15"/>
-                            <Setter Property="LayoutTransform" >
-                                <Setter.Value>
-                                    <RotateTransform  Angle="-45" />
-                                </Setter.Value>
-                            </Setter>
-                            <Setter Property="Foreground" Value="Black"/>
-                        </Style>
-                    </dvc:CategoryAxis.AxisLabelStyle>
-                </dvc:CategoryAxis>
-            </dvc:Chart.Axes>
+        <dvc:Chart Canvas.Top="80" Canvas.Left="10" Name="chart"    
+            Width="400" Height="250"    
+            Background="LightSteelBlue">
             <dvc:Chart.Series>
-                <dvc:ColumnSeries ItemsSource="{Binding Line1}" 
-                           DependentValuePath="Value" 
-                           IndependentValuePath="Col">
-                    <dvc:ColumnSeries.LegendItemStyle >
-                        <Style TargetType="dvc:LegendItem">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                        </Style>
-                    </dvc:ColumnSeries.LegendItemStyle>
-                    <dvc:ColumnSeries.DependentRangeAxis>
-                        <dvc:LinearAxis Minimum="0" Maximum="200000" Orientation="Y"/>
-                    </dvc:ColumnSeries.DependentRangeAxis>
-                </dvc:ColumnSeries>
-                <dvc:LineSeries ItemsSource="{Binding Line1}" 
-                           DependentValuePath="Value" 
-                           IndependentValuePath="Col">
-                    <dvc:LineSeries.LegendItemStyle >
-                        <Style TargetType="dvc:LegendItem">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                        </Style>
-                    </dvc:LineSeries.LegendItemStyle>
-                </dvc:LineSeries>
+                <dvc:BarSeries Title="Experience"    
+                    IndependentValueBinding="{Binding Path=Key}"    
+                    DependentValueBinding="{Binding Path=Value}">
+                </dvc:BarSeries>
             </dvc:Chart.Series>
         </dvc:Chart>
     </Grid>
