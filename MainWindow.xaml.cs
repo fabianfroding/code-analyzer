@@ -31,13 +31,15 @@ namespace CodeAnalyzer
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
-            ClassFinder.FindClassesInDirectory(fbd.SelectedPath);
-            Debug.WriteLine("Lines in file: " + ClassFinder.CountLinesInFile(""));
+            ClassFinder.FindCSFilesInDirectory(fbd.SelectedPath);
         }
 
         private void BTN_Graph_Click(object sender, RoutedEventArgs e)
         {
-            Graph graphWindow = new Graph();
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowDialog();
+
+            Graph graphWindow = new Graph(ClassFinder.GetCSFilesLOC(fbd.SelectedPath));
             graphWindow.Show();
             this.Close();
         }

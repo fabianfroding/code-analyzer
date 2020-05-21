@@ -23,11 +23,19 @@ namespace CodeAnalyzer
         public Graph()
         {
             InitializeComponent();
-            DrawHistogram();
         }
 
-        public void DrawHistogram()
+        public Graph(List<KeyValuePair<string, int>> values)
         {
+            InitializeComponent();
+            DrawHistogram(values);
+        }
+
+        public void DrawHistogram(List<KeyValuePair<string, int>> values)
+        {
+            ((BarSeries)chart.Series[0]).ItemsSource = values.ToArray();
+
+            /*
             ((BarSeries)chart.Series[0]).ItemsSource =
                 new KeyValuePair<string, int>[]{
                 new KeyValuePair<string,int>("Information Holder", 12),
@@ -36,6 +44,7 @@ namespace CodeAnalyzer
                 new KeyValuePair<string,int>("Controller", 6),
                 new KeyValuePair<string,int>("Coordinator", 10),
                 new KeyValuePair<string,int>("Interfacer", 4) };
+                */
         }
     }
 }

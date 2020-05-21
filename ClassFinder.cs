@@ -7,37 +7,64 @@ namespace CodeAnalyzer
 {
     static class ClassFinder
     {
-        static string temp;
+        public static List<FileInfo> CSFiles;
 
-        public static void FindClassesInDirectory(string dirPath)
+
+        //=============== Public Methods ===============//
+        public static void FindCSFilesInDirectory(string dirPath)
         {
-            // TODO: Recursive through sub dirs
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-            FileInfo[] fi = di.GetFiles();
-            for (int i = 0; i < fi.Length; i++)
+            CSFiles = GetCSFilesInDirectory(dirPath);
+            foreach (FileInfo fi in CSFiles)
             {
-                if (fi[i].Name.EndsWith(".cs"))
-                {
-                    Debug.WriteLine(fi[i].Name);
-                }
+                Debug.WriteLine(fi.Name);
             }
-            temp = fi[0].FullName;
         }
 
-        public static int CountLinesInFile(string filePath)
+        public static List<KeyValuePair<string, int>> GetCSFilesLOC(string dirPath)
         {
-            List<string> lines = File.ReadAllLines(temp).ToList();
-            int lineCount = 0;
+            FindCSFilesInDirectory(dirPath);
 
-            foreach (string line in lines)
+            var list = new List<KeyValuePair<string, int>>();
+
+            foreach (FileInfo fi in CSFiles)
             {
-                if (line != "")
+                
+                List<string> lines = File.ReadAllLines(fi.FullName).ToList();
+                int lineCount = 0;
+
+                foreach (string line in lines)
                 {
-                    lineCount++;
+                    if (line != "")
+                    {
+                        lineCount++;
+                    }
+                    Debug.WriteLine(line);
                 }
-                Debug.WriteLine(line);
+                list.Add(new KeyValuePair<string, int>(fi.Name, lineCount));
             }
-            return lineCount;
+            
+            return list;
+        }
+
+        //=============== Private Methods ===============//
+        private static List<FileInfo> GetCSFilesInDirectory(string dirPath)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            List<FileInfo> csFiles = new List<FileInfo>();
+
+            foreach (FileInfo fi in di.GetFiles())
+            {
+                if (fi.Name.EndsWith(".cs"))
+                {
+                    csFiles.Add(fi);
+                }
+            }
+            foreach (DirectoryInfo _di in di.GetDirectories())
+            {
+                csFiles.AddRange(GetCSFilesInDirectory(_di.FullName));
+            }
+
+            return csFiles;
         }
     }
 }
