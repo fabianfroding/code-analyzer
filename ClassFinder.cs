@@ -45,8 +45,10 @@ namespace CodeAnalyzer
                 CSharpClasses = new List<CSharpClass>();
                 foreach (FileInfo fi in CSFiles)
                 {
-                    CSharpClass cSharpClass = new CSharpClass(fi.Name.Replace(".cs", ""));
-                    cSharpClass.codeLines = File.ReadAllLines(fi.FullName).ToList();
+                    CSharpClass cSharpClass = new CSharpClass(fi.Name.Replace(".cs", ""))
+                    {
+                        codeLines = File.ReadAllLines(fi.FullName).ToList()
+                    };
                     CSharpClasses.Add(cSharpClass);
                 }
             }
