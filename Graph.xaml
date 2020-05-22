@@ -7,11 +7,6 @@
         xmlns:local="clr-namespace:CodeAnalyzer"
         mc:Ignorable="d"
         Title="Graph" Height="450" Width="800">
-    <!-- Causes stackoverflow exception
-    <Window.DataContext>
-        <local:Graph/>
-    </Window.DataContext>
-    -->
     <Grid x:Name="grd">
         <dvc:Chart Canvas.Top="160" Canvas.Left="20" Name="chart"    
             Width="800" Height="500"    

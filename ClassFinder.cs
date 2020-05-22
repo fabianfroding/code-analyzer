@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CodeAnalyzer.Models;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -7,43 +8,29 @@ namespace CodeAnalyzer
 {
     static class ClassFinder
     {
-        public static List<FileInfo> CSFiles;
-
+        public static List<CSharpClass> CSharpClasses;
+        private static List<FileInfo> CSFiles;
 
         //=============== Public Methods ===============//
         public static void FindCSFilesInDirectory(string dirPath)
         {
             CSFiles = GetCSFilesInDirectory(dirPath);
-            foreach (FileInfo fi in CSFiles)
-            {
-                Debug.WriteLine(fi.Name);
-            }
         }
 
-        public static List<KeyValuePair<string, int>> GetCSFilesLOC(string dirPath)
+        public static bool GenerateCSharpClasses()
         {
-            FindCSFilesInDirectory(dirPath);
-
-            var list = new List<KeyValuePair<string, int>>();
-
+            if (CSFiles.Count == 0)
+            {
+                return false;
+            }
+            CSharpClasses = new List<CSharpClass>();
             foreach (FileInfo fi in CSFiles)
             {
-                
-                List<string> lines = File.ReadAllLines(fi.FullName).ToList();
-                int lineCount = 0;
-
-                foreach (string line in lines)
-                {
-                    if (line != "")
-                    {
-                        lineCount++;
-                    }
-                    Debug.WriteLine(line);
-                }
-                list.Add(new KeyValuePair<string, int>(fi.Name, lineCount));
+                CSharpClass cSharpClass = new CSharpClass(fi.Name);
+                cSharpClass.codeLines = File.ReadAllLines(fi.FullName).ToList();
+                CSharpClasses.Add(cSharpClass);
             }
-            
-            return list;
+            return true;
         }
 
         //=============== Private Methods ===============//

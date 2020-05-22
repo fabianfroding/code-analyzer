@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CodeAnalyzer.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls.DataVisualization.Charting;
@@ -15,16 +16,23 @@ namespace CodeAnalyzer
             InitializeComponent();
         }
 
-        public Graph(List<KeyValuePair<string, int>> values)
+        public Graph(List<CSharpClass> cSharpClasses)
         {
             InitializeComponent();
-            DrawBarGraph(values);
+            DrawBarGraph(cSharpClasses);
         }
 
-        public void DrawBarGraph(List<KeyValuePair<string, int>> values)
+        public void DrawBarGraph(List<CSharpClass> cSharpClasses)
         {
-            values = values.OrderBy(x => x.Value).ToList();
-            ((BarSeries)chart.Series[0]).ItemsSource = values.ToArray();
+            var list = new List<KeyValuePair<string, int>>();
+
+            foreach (CSharpClass cSharpClass in cSharpClasses)
+            {
+                list.Add(new KeyValuePair<string, int>(cSharpClass.name, cSharpClass.GetLOC()));
+            }
+
+            list = list.OrderBy(x => x.Value).ToList();
+            ((BarSeries)chart.Series[0]).ItemsSource = list.ToArray();
         }
     }
 }
