@@ -1,6 +1,5 @@
 ﻿using CodeAnalyzer.Models;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -15,22 +14,7 @@ namespace CodeAnalyzer
         public static void FindCSFilesInDirectory(string dirPath)
         {
             CSFiles = GetCSFilesInDirectory(dirPath);
-        }
-
-        public static bool GenerateCSharpClasses()
-        {
-            if (CSFiles.Count == 0)
-            {
-                return false;
-            }
-            CSharpClasses = new List<CSharpClass>();
-            foreach (FileInfo fi in CSFiles)
-            {
-                CSharpClass cSharpClass = new CSharpClass(fi.Name);
-                cSharpClass.codeLines = File.ReadAllLines(fi.FullName).ToList();
-                CSharpClasses.Add(cSharpClass);
-            }
-            return true;
+            GenerateCSharpClasses();
         }
 
         //=============== Private Methods ===============//
@@ -53,5 +37,20 @@ namespace CodeAnalyzer
 
             return csFiles;
         }
+
+        private static void GenerateCSharpClasses()
+        {
+            if (CSFiles.Count != 0)
+            {
+                CSharpClasses = new List<CSharpClass>();
+                foreach (FileInfo fi in CSFiles)
+                {
+                    CSharpClass cSharpClass = new CSharpClass(fi.Name.Replace(".cs", ""));
+                    cSharpClass.codeLines = File.ReadAllLines(fi.FullName).ToList();
+                    CSharpClasses.Add(cSharpClass);
+                }
+            }
+        }
+
     }
 }

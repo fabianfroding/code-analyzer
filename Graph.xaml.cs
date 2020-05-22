@@ -28,7 +28,7 @@ namespace CodeAnalyzer
 
             foreach (CSharpClass cSharpClass in cSharpClasses)
             {
-                list.Add(new KeyValuePair<string, int>(cSharpClass.name, cSharpClass.GetLOC()));
+                list.Add(new KeyValuePair<string, int>(cSharpClass.name, cSharpClass.FindAssociationsAmongCSharpClasses(ClassFinder.CSharpClasses).Count));
             }
 
             list = list.OrderBy(x => x.Value).ToList();

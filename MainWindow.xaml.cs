@@ -32,7 +32,6 @@ namespace CodeAnalyzer
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
             ClassFinder.FindCSFilesInDirectory(fbd.SelectedPath);
-            ClassFinder.GenerateCSharpClasses();
         }
 
         private void BTN_Graph_Click(object sender, RoutedEventArgs e)
@@ -40,7 +39,6 @@ namespace CodeAnalyzer
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
             ClassFinder.FindCSFilesInDirectory(fbd.SelectedPath);
-            ClassFinder.GenerateCSharpClasses();
 
             Graph graphWindow = new Graph(ClassFinder.CSharpClasses);
             graphWindow.Show();
