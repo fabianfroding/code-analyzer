@@ -22,6 +22,7 @@
         </dvc:Chart>
         -->
 
+        
         <dvc:Chart Canvas.Top="80" Canvas.Left="10" Name="scatterChart"
             Width="400" Height="250" 
             Background="LightSteelBlue">
@@ -33,5 +34,6 @@
             </dvc:Chart.Series>
         </dvc:Chart>
         
+
     </Grid>
 </Window>

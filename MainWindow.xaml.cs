@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CodeAnalyzer.Models;
 
 namespace CodeAnalyzer
 {
@@ -43,6 +44,17 @@ namespace CodeAnalyzer
             Graph graphWindow = new Graph(ClassFinder.CSharpClasses);
             graphWindow.Show();
             this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window
+            {
+                Title = "My User Control Dialog",
+                Content = new ScatterPlot()
+            };
+
+            window.ShowDialog();
         }
     }
 }

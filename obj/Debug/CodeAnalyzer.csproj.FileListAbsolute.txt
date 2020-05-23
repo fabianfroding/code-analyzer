@@ -17,3 +17,11 @@ C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisu
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Graph.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Graph.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.CopyComplete
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.dll
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.pdb
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.xml
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterPlot.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterPlot.baml
