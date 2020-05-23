@@ -8,6 +8,8 @@
         mc:Ignorable="d"
         Title="Graph" Height="450" Width="800">
     <Grid x:Name="grd">
+        
+        <!--
         <dvc:Chart Canvas.Top="160" Canvas.Left="20" Name="chart"    
             Width="800" Height="500"    
             Background="LightSteelBlue">
@@ -18,5 +20,18 @@
                 </dvc:BarSeries>
             </dvc:Chart.Series>
         </dvc:Chart>
+        -->
+
+        <dvc:Chart Canvas.Top="80" Canvas.Left="10" Name="scatterChart"
+            Width="400" Height="250" 
+            Background="LightSteelBlue">
+            <dvc:Chart.Series>
+                <dvc:ScatterSeries Title="Dots" 
+                    IndependentValueBinding="{Binding Path=Key}" 
+                    DependentValueBinding="{Binding Path=Value}">
+                </dvc:ScatterSeries>
+            </dvc:Chart.Series>
+        </dvc:Chart>
+        
     </Grid>
 </Window>
