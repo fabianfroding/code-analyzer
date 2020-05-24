@@ -29,6 +29,8 @@ namespace CodeAnalyzer
                     ));
             }
 
+            chart1.DataClick += ChartOnDataClick;
+
             /*
             var r = new Random();
             ValuesA = new ChartValues<ObservablePoint>();
@@ -44,6 +46,15 @@ namespace CodeAnalyzer
             */
 
             DataContext = this;
+        }
+
+        private void ChartOnDataClick(object sender, ChartPoint p)
+        {
+            System.Diagnostics.Debug.WriteLine("Hey");
+            int i = p.Key;
+            CSharpClass c = ClassFinder.CSharpClasses[i];
+            System.Diagnostics.Debug.WriteLine("Clicked class: " + ClassFinder.CSharpClasses[i].name);
+
         }
 
         private void RandomizeOnClick(object sender, RoutedEventArgs e)

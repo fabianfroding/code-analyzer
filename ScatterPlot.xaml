@@ -13,7 +13,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Margin="10" Click="RandomizeOnClick">Randomize</Button>
-        <lvc:CartesianChart Grid.Row="1" LegendLocation="Bottom">
+        <lvc:CartesianChart Grid.Row="1" LegendLocation="Bottom" Name="chart1">
             <lvc:CartesianChart.Series>
                 <lvc:ScatterSeries Title="Series A" Values="{Binding ValuesA}" />
                 <lvc:ScatterSeries Title="Series B" Values="{Binding ValuesB}"
