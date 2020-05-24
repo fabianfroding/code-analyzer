@@ -56,5 +56,6 @@ namespace CodeAnalyzer
 
             window.ShowDialog();
         }
+
     }
 }
