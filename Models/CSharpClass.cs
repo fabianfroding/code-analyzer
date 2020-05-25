@@ -33,24 +33,15 @@ namespace CodeAnalyzer.Models
 
             for (int i = 0; i < cSharpClasses.Count; i++)
             {
-                foreach (string line in cSharpClasses[i].codeLines)
-                {
-                    if (this.name != cSharpClasses[i].name && line.Contains(this.name))
-                    {
-                        bool associationAlreadyFound = false;
-                        foreach (CSharpClass cSharpClass in associations)
-                        {
-                            if (cSharpClasses[i].name == cSharpClass.name)
-                            {
-                                associationAlreadyFound = true;
-                            }
-                        }
+                bool associationAlreadyFound = false;
 
-                        if (!associationAlreadyFound)
-                        {
-                            Debug.WriteLine(this.name + " found in " + cSharpClasses[i].name);
-                            associations.Add(cSharpClasses[i]);
-                        }
+                for (int j = 0; j < codeLines.Count && !associationAlreadyFound; j++)
+                {
+                    if (codeLines[j].Contains(cSharpClasses[i].name) && this.name != cSharpClasses[i].name)
+                    {
+                        Debug.WriteLine(name + " uses " + cSharpClasses[i].name);
+                        associations.Add(cSharpClasses[i]);
+                        associationAlreadyFound = true;
                     }
                 }
             }
