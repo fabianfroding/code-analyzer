@@ -1,6 +1,7 @@
 ﻿using CodeAnalyzer.Models;
 using LiveCharts;
 using LiveCharts.Defaults;
+using LiveCharts.Wpf;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,8 @@ namespace CodeAnalyzer
             }
 
             chart1.DataClick += ChartOnDataClick;
+            chart1.DataHover += ChartOnDataHover;
+            
 
             /*
             var r = new Random();
@@ -50,11 +53,12 @@ namespace CodeAnalyzer
 
         private void ChartOnDataClick(object sender, ChartPoint p)
         {
-            System.Diagnostics.Debug.WriteLine("Hey");
-            int i = p.Key;
-            CSharpClass c = ClassFinder.CSharpClasses[i];
-            System.Diagnostics.Debug.WriteLine("Clicked class: " + ClassFinder.CSharpClasses[i].name);
+            System.Diagnostics.Debug.WriteLine("Clicked class: " + ClassFinder.CSharpClasses[p.Key].name);
+        }
 
+        private void ChartOnDataHover(object sender, ChartPoint p)
+        {
+            System.Diagnostics.Debug.WriteLine("Hovered class: " + ClassFinder.CSharpClasses[p.Key].name);
         }
 
         private void RandomizeOnClick(object sender, RoutedEventArgs e)

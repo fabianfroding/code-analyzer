@@ -25,7 +25,11 @@
             <lvc:CartesianChart.AxisY>
                 <!--setting the axis unit improved the labels rounding rule-->
                 <lvc:Axis Unit="1"></lvc:Axis>
+                <lvc:Axis Title="Associations" LabelFormatter="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="LOC" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
     </Grid>
 </UserControl>
