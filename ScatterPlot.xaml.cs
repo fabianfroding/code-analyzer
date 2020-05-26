@@ -32,7 +32,18 @@ namespace CodeAnalyzer
 
             chart1.DataClick += ChartOnDataClick;
             chart1.DataHover += ChartOnDataHover;
-            
+
+            // Force y-axis to have interval based on 1.
+            chart1.AxisY.Clear();
+            chart1.AxisY.Add(new Axis
+            {
+                Title = "Associations",
+                Separator = new LiveCharts.Wpf.Separator
+                {
+                    Step = 1,
+                    IsEnabled = false // Does what? Maybe prevents separator step to automatically change when resizing window?
+                }
+            });
 
             /*
             var r = new Random();
