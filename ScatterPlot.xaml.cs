@@ -70,6 +70,10 @@ namespace CodeAnalyzer
         private void ChartOnDataHover(object sender, ChartPoint p)
         {
             System.Diagnostics.Debug.WriteLine("Hovered class: " + ClassFinder.CSharpClasses[p.Key].name);
+
+            
+
+
         }
 
         private void RandomizeOnClick(object sender, RoutedEventArgs e)

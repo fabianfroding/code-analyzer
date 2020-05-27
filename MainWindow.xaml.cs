@@ -57,5 +57,15 @@ namespace CodeAnalyzer
             window.ShowDialog();
         }
 
+        private void TestTooltips_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new Window
+            {
+                Title = "Custom Tooltips",
+                Content = new CustomTooltipExample()
+            };
+
+            window.ShowDialog();
+        }
     }
 }

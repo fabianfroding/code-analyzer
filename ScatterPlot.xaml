@@ -16,17 +16,7 @@
         <lvc:CartesianChart Grid.Row="1" LegendLocation="Bottom" Name="chart1">
             <lvc:CartesianChart.Series>
                 <lvc:ScatterSeries Title="Series A" Values="{Binding ValuesA}" />
-                <lvc:ScatterSeries Title="Series B" Values="{Binding ValuesB}"
-                                   PointGeometry="{x:Static lvc:DefaultGeometries.Diamond}" />
-                <lvc:ScatterSeries Title="Series C" Values="{Binding ValuesC}"
-                                   PointGeometry="{x:Static lvc:DefaultGeometries.Triangle}"
-                                   StrokeThickness="2" Fill="Transparent"/>
             </lvc:CartesianChart.Series>
-            <lvc:CartesianChart.AxisY>
-                <!--setting the axis unit improved the labels rounding rule-->
-                <lvc:Axis Unit="1"></lvc:Axis>
-                <lvc:Axis Title="Associations" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="LOC" LabelFormatter="{Binding Formatter}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>

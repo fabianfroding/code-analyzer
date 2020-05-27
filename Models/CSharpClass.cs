@@ -7,11 +7,15 @@ namespace CodeAnalyzer.Models
     {
         public string name;
         public List<string> codeLines;
+        public int numAssociations = 0;
+        public int numLOC = 0;
 
         public CSharpClass(string name)
         {
             this.name = name;
             codeLines = new List<string>();
+            numLOC = 0;
+            numAssociations = 0;
         }
 
         public int GetLOC()
@@ -24,6 +28,8 @@ namespace CodeAnalyzer.Models
                     lineCount++;
                 }
             }
+
+            this.numLOC = lineCount;
             return lineCount;
         }
 
@@ -46,6 +52,7 @@ namespace CodeAnalyzer.Models
                 }
             }
 
+            this.numAssociations = associations.Count;
             return associations;
         }
     }
