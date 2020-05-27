@@ -69,25 +69,13 @@
       <DependentUpon>CSharpClassesTooltip.xaml</DependentUpon>
     </Compile>
     <Compile Include="CSharpClassVm.cs" />
-    <Compile Include="CustomersTooltip.xaml.cs">
-      <DependentUpon>CustomersTooltip.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerVm.cs" />
-    <Compile Include="CustomTooltipExample.xaml.cs">
-      <DependentUpon>CustomTooltipExample.xaml</DependentUpon>
+    <Compile Include="ScatterNew.xaml.cs">
+      <DependentUpon>ScatterNew.xaml</DependentUpon>
     </Compile>
     <Compile Include="ScatterPlot.xaml.cs">
       <DependentUpon>ScatterPlot.xaml</DependentUpon>
     </Compile>
     <Page Include="CSharpClassesTooltip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomersTooltip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CustomTooltipExample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ScatterNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ScatterPlot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

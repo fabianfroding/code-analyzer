@@ -25,10 +25,8 @@ C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterPlot.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterPlot.baml
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CustomersTooltip.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CustomersTooltip.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassesTooltip.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CustomTooltipExample.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassesTooltip.baml
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CustomTooltipExample.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.baml

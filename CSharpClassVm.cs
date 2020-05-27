@@ -3,7 +3,7 @@
     public class CSharpClassVm
     {
         public string Name { get; set; }
-        public int NumAssociations = 0;
-        public int NumLOC = 0;
+        public int NumAssociations { get; set; }
+        public int NumLOC { get; set; }
     }
 }
