@@ -30,3 +30,5 @@ C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassesTooltip.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassView.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassView.baml

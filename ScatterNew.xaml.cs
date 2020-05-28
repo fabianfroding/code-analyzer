@@ -2,6 +2,7 @@
 using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CodeAnalyzer
@@ -40,7 +41,8 @@ namespace CodeAnalyzer
                 }
             });
 
-            //Labels = new[] { "Irvin", "Malcolm", "Anne", "Vivian", "Caleb" };
+            chart1.DataClick += ChartOnDataClick;
+
 
             //let create a mapper so LiveCharts know how to plot our CustomerViewModel class
             var cSharpClassVmMapper = Mappers.Xy<CSharpClassVm>()
@@ -53,7 +55,18 @@ namespace CodeAnalyzer
             DataContext = this;
         }
 
-        
-        //public string[] Labels { get; set; }
+
+        private void ChartOnDataClick(object sender, ChartPoint p)
+        {
+            CSharpClass cSharpClass = ClassFinder.CSharpClasses[p.Key];
+
+            Window window = new Window
+            {
+                Title = cSharpClass.name,
+                Content = new CSharpClassView(cSharpClass)
+            };
+
+            window.ShowDialog();
+        }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Fabian\Projects\CodeAnalyzer\App.xaml
-5-1831072067
+6-926824276
 
-131396854004
+14963287069
 17928385151
-CSharpClassesTooltip.xaml;Graph.xaml;MainWindow.xaml;ScatterNew.xaml;ScatterPlot.xaml;
+CSharpClassesTooltip.xaml;CSharpClassView.xaml;Graph.xaml;MainWindow.xaml;ScatterNew.xaml;ScatterPlot.xaml;
 
-False
+True
 
