@@ -65,13 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CSClassController.cs" />
     <Compile Include="CSharpClassesTooltip.xaml.cs">
       <DependentUpon>CSharpClassesTooltip.xaml</DependentUpon>
     </Compile>
     <Compile Include="CSharpClassView.xaml.cs">
       <DependentUpon>CSharpClassView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CSharpClassVm.cs" />
+    <Compile Include="Models\CSClass.cs" />
+    <Compile Include="Models\CSharpClassVm.cs" />
+    <Compile Include="Repositories\CSClassRepository.cs" />
     <Compile Include="ScatterNew.xaml.cs">
       <DependentUpon>ScatterNew.xaml</DependentUpon>
     </Compile>
