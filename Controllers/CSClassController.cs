@@ -10,5 +10,10 @@ namespace CodeAnalyzer.Controllers
         {
             return CSClassRepository.GetCSClasses();
         }
+
+        public static CSClass GetCSClassByName(string name)
+        {
+            return CSClassRepository.GetCSClassByName(name);
+        }
     }
 }

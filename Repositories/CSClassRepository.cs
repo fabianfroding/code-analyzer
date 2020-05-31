@@ -22,6 +22,18 @@ namespace CodeAnalyzer.Repositories
             return CSClasses;
         }
 
+        public static CSClass GetCSClassByName(string name)
+        {
+            foreach (CSClass _CSClass in CSClasses)
+            {
+                if (_CSClass.Name == name)
+                {
+                    return _CSClass;
+                }
+            }
+            return null;
+        }
+
         //=============== Private Methods ===============//
         private static List<FileInfo> GetCSFilesInSubDirectories(string dirPath)
         {
