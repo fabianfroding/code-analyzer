@@ -14,10 +14,10 @@
         </Grid.RowDefinitions>
         <lvc:CartesianChart Grid.Row="1" LegendLocation="Right" Name="chart1">
             <lvc:CartesianChart.Series>
-                <lvc:ScatterSeries Title="Associations over LOC" Values="{Binding CSharpClasses}" />
+                <lvc:ScatterSeries Title="Associations over LOC" Values="{Binding CSClasses}" />
             </lvc:CartesianChart.Series>
             <lvc:CartesianChart.DataTooltip>
-                <local:CSharpClassesTooltip/>
+                <local:CSClassesTooltip/>
             </lvc:CartesianChart.DataTooltip>
         </lvc:CartesianChart>
     </Grid>

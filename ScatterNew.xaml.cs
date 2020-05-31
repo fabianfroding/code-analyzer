@@ -1,4 +1,4 @@
-﻿using CodeAnalyzer.Models;
+﻿using CodeAnalyzer.Controllers;
 using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
@@ -9,24 +9,19 @@ namespace CodeAnalyzer
 {
     public partial class ScatterNew : UserControl
     {
-        public ChartValues<CSharpClassVm> CSharpClasses { get; set; }
+        public ChartValues<CSClass> CSClasses { get; set; }
 
         public ScatterNew()
         {
             InitializeComponent();
 
-            CSharpClasses = new ChartValues<CSharpClassVm>();
+            CSClasses = new ChartValues<CSClass>();
 
-            foreach (CSharpClass cSharpClass in ClassFinder.CSharpClasses)
+            foreach (CSClass _CSClass in CSClassController.GetAllCSClasses())
             {
-                CSharpClassVm vm = new CSharpClassVm
-                {
-                    Name = cSharpClass.name,
-                    NumAssociations = cSharpClass.FindAssociationsAmongCSharpClasses(ClassFinder.CSharpClasses).Count,
-                    NumLOC = cSharpClass.GetLOC()
-                };
-                CSharpClasses.Add(vm);
-                System.Diagnostics.Debug.WriteLine(vm.ToString());
+                _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses());
+                _CSClass.CountLOC();
+                CSClasses.Add(_CSClass);
             }
 
             // Force y-axis to have interval based on 1.
@@ -45,12 +40,12 @@ namespace CodeAnalyzer
 
 
             //let create a mapper so LiveCharts know how to plot our CustomerViewModel class
-            var cSharpClassVmMapper = Mappers.Xy<CSharpClassVm>()
+            var _CSClassVm = Mappers.Xy<CSClass>()
                 .X(value => value.NumLOC) // lets use the position of the item as X
                 .Y(value => value.NumAssociations); //and PurchasedItems property as Y
 
             //lets save the mapper globally
-            Charting.For<CSharpClassVm>(cSharpClassVmMapper);
+            Charting.For<CSClass>(_CSClassVm);
 
             DataContext = this;
         }
@@ -58,12 +53,12 @@ namespace CodeAnalyzer
 
         private void ChartOnDataClick(object sender, ChartPoint p)
         {
-            CSharpClass cSharpClass = ClassFinder.CSharpClasses[p.Key];
+            CSClass _CSClass = CSClassController.GetCSClassByIndex(p.Key);
 
             Window window = new Window
             {
-                Title = cSharpClass.name,
-                Content = new CSharpClassView(cSharpClass)
+                Title = _CSClass.Name,
+                Content = new CSClassView(_CSClass)
             };
 
             window.ShowDialog();

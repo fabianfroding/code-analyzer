@@ -4,11 +4,11 @@ using LiveCharts.Wpf;
 
 namespace CodeAnalyzer
 {
-    public partial class CSharpClassesTooltip : IChartTooltip
+    public partial class CSClassesTooltip : IChartTooltip
     {
         private TooltipData _data;
 
-        public CSharpClassesTooltip()
+        public CSClassesTooltip()
         {
             InitializeComponent();
             DataContext = this;

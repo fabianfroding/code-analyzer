@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CodeAnalyzer.CSharpClassesTooltip"
+﻿<UserControl x:Class="CodeAnalyzer.CSClassesTooltip"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -22,12 +22,12 @@
                     </Grid.ColumnDefinitions>
                     <Rectangle Grid.Column="0" Stroke="{Binding Series.Stroke}" Fill="{Binding Series.Fill}"
                                Height="15" Width="15"></Rectangle>
-                    <TextBlock Grid.Column="1" Text="{Binding ChartPoint.Instance.(local:CSharpClassVm.Name)}" 
+                    <TextBlock Grid.Column="1" Text="{Binding ChartPoint.Instance.(local:CSClass.Name)}" 
                                Margin="5 0 0 0" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Grid.Column="2" Text="{Binding ChartPoint.Instance.(local:CSharpClassVm.NumAssociations),
+                    <TextBlock Grid.Column="2" Text="{Binding ChartPoint.Instance.(local:CSClass.NumAssociations),
                                                         StringFormat=Associations: {0}}"
                                Margin="5 0 0 0" VerticalAlignment="Center" Foreground="White"/>
-                    <TextBlock Grid.Column="3" Text="{Binding ChartPoint.Instance.(local:CSharpClassVm.NumLOC), 
+                    <TextBlock Grid.Column="3" Text="{Binding ChartPoint.Instance.(local:CSClass.NumLOC), 
                                                         StringFormat=LOC: {0}}" 
                                Margin="5 0 0 0" VerticalAlignment="Center" Foreground="White"/>
                 </Grid>

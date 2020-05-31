@@ -14,8 +14,6 @@ C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.exe
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.pdb
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Graph.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Graph.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.CopyComplete
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.dll
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.pdb
@@ -23,12 +21,10 @@ C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.xml
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.dll
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.xml
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterPlot.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterPlot.baml
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassesTooltip.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassesTooltip.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.baml
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassView.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSharpClassView.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\CSClassView.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\CSClassView.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSClassesTooltip.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSClassesTooltip.baml

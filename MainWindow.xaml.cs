@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CodeAnalyzer.Models;
+using CodeAnalyzer.Repositories;
 
 namespace CodeAnalyzer
 {
@@ -29,18 +29,7 @@ namespace CodeAnalyzer
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.ShowDialog();
-            ClassFinder.FindCSFilesInDirectory(fbd.SelectedPath);
-        }
-
-        private void BTN_Graph_Click(object sender, RoutedEventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.ShowDialog();
-            ClassFinder.FindCSFilesInDirectory(fbd.SelectedPath);
-
-            Graph graphWindow = new Graph(ClassFinder.CSharpClasses);
-            graphWindow.Show();
-            this.Close();
+            CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

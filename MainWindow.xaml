@@ -8,7 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="BTN_Analyze" Content="Analyze" HorizontalAlignment="Left" Margin="26,29,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Analyze_Click"/>
-        <Button x:Name="BTN_Graph" Content="Graph" HorizontalAlignment="Left" Margin="26,75,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Graph_Click"/>
-        <Button x:Name="BTN_Scatter" Content=" Scatter&#xA;" HorizontalAlignment="Left" Margin="40,139,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="BTN_Scatter" Content=" Scatter&#xA;" HorizontalAlignment="Left" Margin="26,75,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="24"/>
     </Grid>
 </Window>

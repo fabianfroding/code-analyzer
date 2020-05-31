@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace CodeAnalyzer.Models
+namespace CodeAnalyzer
 {
     public class CSClass
     {

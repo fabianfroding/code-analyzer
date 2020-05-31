@@ -1,5 +1,4 @@
-﻿using CodeAnalyzer.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -17,7 +16,7 @@ namespace CodeAnalyzer.Repositories
             GenerateCSClasses();
         }
 
-        public static List<CSClass> GetCSClasses()
+        public static List<CSClass> GetAllCSClasses()
         {
             return CSClasses;
         }
@@ -29,6 +28,18 @@ namespace CodeAnalyzer.Repositories
                 if (_CSClass.Name == name)
                 {
                     return _CSClass;
+                }
+            }
+            return null;
+        }
+
+        public static CSClass GetCSClassByIndex(int index)
+        {
+            for (int i = 0; i < CSClasses.Count; i++)
+            {
+                if (i == index)
+                {
+                    return CSClasses[i];
                 }
             }
             return null;
