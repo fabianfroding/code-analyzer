@@ -4,10 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodeAnalyzer"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <Button x:Name="BTN_Analyze" Content="Analyze" HorizontalAlignment="Left" Margin="26,29,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Analyze_Click"/>
-        <Button x:Name="BTN_Scatter" Content=" Scatter&#xA;" HorizontalAlignment="Left" Margin="26,75,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="24"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="97*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="541*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF8522BD">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="Bell"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="Account"/>
+                </Button>
+                <Button x:Name="BTNClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="BTNClose_Click">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Button x:Name="BTN_Analyze" Content="Analyze" HorizontalAlignment="Left" Margin="26,32.667,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Analyze_Click" Height="21" Grid.Row="1"/>
+        <Button x:Name="BTN_Scatter" Content=" Scatter&#xA;" HorizontalAlignment="Left" Margin="26,108.667,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="24" Grid.Row="1"/>
     </Grid>
 </Window>

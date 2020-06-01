@@ -42,5 +42,10 @@ namespace CodeAnalyzer
 
             window.ShowDialog();
         }
+
+        private void BTNClose_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

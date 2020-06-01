@@ -28,3 +28,8 @@ C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\CSClassView.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\CSClassView.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSClassesTooltip.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSClassesTooltip.baml
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignColors.dll
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.xml
