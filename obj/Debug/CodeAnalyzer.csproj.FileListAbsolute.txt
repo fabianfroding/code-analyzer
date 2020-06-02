@@ -33,3 +33,5 @@ C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignColors.pdb
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\App.baml

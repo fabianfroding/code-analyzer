@@ -47,5 +47,10 @@ namespace CodeAnalyzer
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+        private void GridBarTitle_MouseDown(object sender, RoutedEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

@@ -15,15 +15,15 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="541*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF8522BD">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Style="{DynamicResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+        <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#000519" MouseDown="GridBarTitle_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff">
                     <materialDesign:PackIcon Kind="Bell"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff">
                     <materialDesign:PackIcon Kind="Account"/>
                 </Button>
-                <Button x:Name="BTNClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="BTNClose_Click">
+                <Button x:Name="BTNClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNClose_Click">
                     <materialDesign:PackIcon Kind="Power"/>
                 </Button>
             </StackPanel>
