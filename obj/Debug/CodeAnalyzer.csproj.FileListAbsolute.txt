@@ -12,8 +12,6 @@ C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.Properties.Resource
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.GenerateResource.cache
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.exe
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.pdb
-C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll
-C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.xml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.CopyComplete
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.dll
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.pdb
