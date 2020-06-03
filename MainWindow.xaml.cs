@@ -25,24 +25,6 @@ namespace CodeAnalyzer
             InitializeComponent();
         }
 
-        private void BTN_Analyze_Click(object sender, RoutedEventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.ShowDialog();
-            CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Window window = new Window
-            {
-                Title = "Scatters",
-                Content = new ScatterNew()
-            };
-
-            window.ShowDialog();
-        }
-
         private void BTNClose_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
@@ -51,6 +33,26 @@ namespace CodeAnalyzer
         private void GridBarTitle_MouseDown(object sender, RoutedEventArgs e)
         {
             DragMove();
+        }
+
+        private void BTNLoadProject_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Select Project Directory";
+            if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
+
+                // Replace with grah in main window
+                Window window = new Window
+                {
+                    Title = "Scatters",
+                    Content = new ScatterNew()
+                };
+
+                window.ShowDialog();
+            }
+            
         }
     }
 }

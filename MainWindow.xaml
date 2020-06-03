@@ -34,17 +34,10 @@
                 <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFA4CBFA" FontSize="22"/>
             </Grid>
             <StackPanel Grid.Row="1">
-                <Button Margin="10" Background="#FF000519" BorderBrush="#FF000519">
+                <Button Margin="10" Background="#FF000519" BorderBrush="#FF000519" Click="BTNLoadProject_Click">
                     <Grid Width="150">
-                        <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center" Foreground="White"/>
-                        <TextBlock HorizontalAlignment="Center" Text="DASHBOARD" FontFamily="Global User Interface" Foreground="White"/>
-                    </Grid>
-                </Button>
-
-                <Button Margin="10" Background="#FF000519" BorderBrush="#FF000519">
-                    <Grid Width="150">
-                        <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center" Foreground="White"/>
-                        <TextBlock HorizontalAlignment="Center" Text="PROFILE" FontFamily="Global User Interface" Foreground="White"/>
+                        <materialDesign:PackIcon Kind="Folder" VerticalAlignment="Center" Foreground="White"/>
+                        <TextBlock HorizontalAlignment="Center" Text="LOAD PROJECT" FontFamily="Global User Interface" Foreground="White"/>
                     </Grid>
                 </Button>
             </StackPanel>
@@ -52,19 +45,16 @@
 
         <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#000519" MouseDown="GridBarTitle_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff">
-                    <materialDesign:PackIcon Kind="Bell"/>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Margin="0,2">
+                    <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff">
-                    <materialDesign:PackIcon Kind="Account"/>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Margin="0,2">
+                    <materialDesign:PackIcon Kind="WindowMaximize"/>
                 </Button>
-                <Button x:Name="BTNClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNClose_Click">
-                    <materialDesign:PackIcon Kind="Power"/>
+                <Button x:Name="BTNClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNClose_Click" Margin="0,2">
+                    <materialDesign:PackIcon Kind="Close"/>
                 </Button>
             </StackPanel>
         </Grid>
-
-        <Button x:Name="BTN_Analyze" Content="Analyze" HorizontalAlignment="Left" Margin="52,205,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Analyze_Click" Height="31" Grid.Row="1"/>
-        <Button x:Name="BTN_Scatter" Content=" Scatter&#xA;" HorizontalAlignment="Left" Margin="52,257,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click" Height="34" Grid.Row="1"/>
     </Grid>
 </Window>
