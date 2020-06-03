@@ -29,6 +29,7 @@ namespace CodeAnalyzer
         public MainWindow()
         {
             InitializeComponent();
+            CSClasses = new ChartValues<CSClass>();
         }
 
         private void BTNClose_Click(object sender, RoutedEventArgs e)
@@ -50,12 +51,11 @@ namespace CodeAnalyzer
                 CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
                 PlotData();
             }
-            
         }
 
         private void PlotData()
         {
-            CSClasses = new ChartValues<CSClass>();
+            CSClasses.Clear();
 
             foreach (CSClass _CSClass in CSClassController.GetAllCSClasses())
             {
@@ -64,6 +64,7 @@ namespace CodeAnalyzer
                 CSClasses.Add(_CSClass);
             }
 
+            
             // Force y-axis to have interval based on 1.
             ScatterPlot1.AxisY.Clear();
             ScatterPlot1.AxisY.Add(new Axis
@@ -79,10 +80,10 @@ namespace CodeAnalyzer
             ScatterPlot1.DataClick += ChartOnDataClick;
 
 
-            //let create a mapper so LiveCharts know how to plot our CustomerViewModel class
+            //let create a mapper so LiveCharts know how to plot our CSClass class
             var _CSClassVm = Mappers.Xy<CSClass>()
-                .X(value => value.NumLOC) // lets use the position of the item as X
-                .Y(value => value.NumAssociations); //and PurchasedItems property as Y
+                .X(value => value.NumLOC)
+                .Y(value => value.NumAssociations);
 
             //lets save the mapper globally
             Charting.For<CSClass>(_CSClassVm);
