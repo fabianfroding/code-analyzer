@@ -23,6 +23,11 @@ namespace CodeAnalyzer
             int lineCount = 0;
             for (int i = 0; i < CodeLines.Count; i++)
             {
+
+                if (CodeLines[i].Trim().StartsWith("//"))
+                {
+                    CodeLines[i] = "";
+                }
                 if (CodeLines[i] != "")
                 {
                     lineCount++;

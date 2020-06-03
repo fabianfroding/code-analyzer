@@ -29,7 +29,9 @@ namespace CodeAnalyzer
         public MainWindow()
         {
             InitializeComponent();
-            CSClasses = new ChartValues<CSClass>();
+
+            CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
+            ScatterPlot1.DataClick += ChartOnDataClick;
         }
 
         private void BTNClose_Click(object sender, RoutedEventArgs e)
@@ -77,15 +79,12 @@ namespace CodeAnalyzer
                 }
             });
 
-            ScatterPlot1.DataClick += ChartOnDataClick;
-
-
-            //let create a mapper so LiveCharts know how to plot our CSClass class
+            // Let create a mapper so LiveCharts know how to plot our CSClass class
             var _CSClassVm = Mappers.Xy<CSClass>()
                 .X(value => value.NumLOC)
                 .Y(value => value.NumAssociations);
 
-            //lets save the mapper globally
+            // Lets save the mapper globally
             Charting.For<CSClass>(_CSClassVm);
 
             DataContext = this;
