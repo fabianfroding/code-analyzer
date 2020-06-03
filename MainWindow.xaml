@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodeAnalyzer"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d" Height="600" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,6 +16,48 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="541*"/>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FF2A596B">
+            <ScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="199*"/>
+                        <RowDefinition Height="199*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Rectangle Height="150" Margin="20" Fill="White" RadiusX="10" RadiusY="10"/>
+                    <Grid Margin="25">
+                        <Grid Width="30" Height="50" Background="#C5EAFA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 -5">
+                            <Grid.Effect>
+                                <DropShadowEffect ShadowDepth="1" RenderingBias="Quality" Color="#FFC3C3C3"/>
+                            </Grid.Effect>
+                            <materialDesign:PackIcon Kind="MathNorm" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="Black" Width="20" Height="20"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <lvc:CartesianChart Name="ScatterPlot1" Grid.Row="1" LegendLocation="Right">
+                            <lvc:CartesianChart.Series>
+                                <lvc:ScatterSeries Title="Associations over LOC" Values="{Binding CSClasses}" />
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.DataTooltip>
+                                <local:CSClassesTooltip/>
+                            </lvc:CartesianChart.DataTooltip>
+                        </lvc:CartesianChart>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
 
         <Grid Grid.Row="1">
             <Grid.Background>
