@@ -20,8 +20,6 @@ C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.dll
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.g.cs
-C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\ScatterNew.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\CSClassView.g.cs
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\CSClassView.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CSClassesTooltip.g.cs
