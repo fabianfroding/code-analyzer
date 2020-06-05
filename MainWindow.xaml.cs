@@ -55,6 +55,12 @@ namespace CodeAnalyzer
             }
         }
 
+        private void BTNHistogram_Cick(object sender, RoutedEventArgs e)
+        {
+            ScatterPlot1.IsEnabled = false;
+            ScatterPlot1.Visibility = Visibility.Hidden;
+        }
+
         private void PlotData()
         {
             CSClasses.Clear();

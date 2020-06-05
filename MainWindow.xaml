@@ -31,16 +31,6 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Rectangle Height="150" Margin="20" Fill="White" RadiusX="10" RadiusY="10"/>
-                    <Grid Margin="25">
-                        <Grid Width="30" Height="50" Background="#C5EAFA" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 -5">
-                            <Grid.Effect>
-                                <DropShadowEffect ShadowDepth="1" RenderingBias="Quality" Color="#FFC3C3C3"/>
-                            </Grid.Effect>
-                            <materialDesign:PackIcon Kind="MathNorm" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="Black" Width="20" Height="20"/>
-                        </Grid>
-                    </Grid>
-
                     <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Margin="20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -48,7 +38,7 @@
                         </Grid.RowDefinitions>
                         <lvc:CartesianChart Name="ScatterPlot1" Grid.Row="1" LegendLocation="Right" Foreground="White">
                             <lvc:CartesianChart.Series>
-                                <lvc:ScatterSeries Title="Associations over LOC" Values="{Binding CSClasses}" />
+                                <lvc:ScatterSeries Name="ScatterSeries" Title="Associations over LOC" Values="{Binding CSClasses}" />
                             </lvc:CartesianChart.Series>
                             <lvc:CartesianChart.DataTooltip>
                                 <local:CSClassesTooltip/>
@@ -62,8 +52,8 @@
         <Grid Grid.Row="1">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFC5C5C5" Offset="1"/>
-                    <GradientStop Color="#FFE0E0E0"/>
+                    <GradientStop Color="#002537" Offset="1"/>
+                    <GradientStop Color="#004567"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.RowDefinitions>
@@ -73,14 +63,35 @@
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"></DropShadowEffect>
             </Grid.Effect>
-            <Grid Background="#FF6FB4E4">
+            <Grid Background="#004567">
                 <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFA4CBFA" FontSize="22"/>
             </Grid>
             <StackPanel Grid.Row="1">
-                <Button Margin="10" Background="#FF000519" BorderBrush="#FF000519" Click="BTNLoadProject_Click">
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNLoadProject_Click">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Folder" VerticalAlignment="Center" Foreground="White"/>
                         <TextBlock HorizontalAlignment="Center" Text="LOAD PROJECT" FontFamily="Global User Interface" Foreground="White"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="ScatterPlot" VerticalAlignment="Center" Foreground="White"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Scatter Plot" FontFamily="Global User Interface" Foreground="White"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNHistogram_Cick">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="BarChart" VerticalAlignment="Center" Foreground="White"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Histogram" FontFamily="Global User Interface" Foreground="White"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Flowchart" VerticalAlignment="Center" Foreground="White"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Associations Tree" FontFamily="Global User Interface" Foreground="White"/>
                     </Grid>
                 </Button>
             </StackPanel>
