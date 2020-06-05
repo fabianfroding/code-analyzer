@@ -17,7 +17,7 @@
             <RowDefinition Height="541*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="1" Background="#FF2A596B">
+        <Grid Grid.Column="1" Grid.Row="1" Background="#001b29">
             <ScrollViewer>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <lvc:CartesianChart Name="ScatterPlot1" Grid.Row="1" LegendLocation="Right">
+                        <lvc:CartesianChart Name="ScatterPlot1" Grid.Row="1" LegendLocation="Right" Foreground="White">
                             <lvc:CartesianChart.Series>
                                 <lvc:ScatterSeries Title="Associations over LOC" Values="{Binding CSClasses}" />
                             </lvc:CartesianChart.Series>
