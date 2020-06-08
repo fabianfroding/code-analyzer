@@ -156,6 +156,11 @@ namespace CodeAnalyzer
             else
             {
                 SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.CountLOC()).ToList();
+                Histogram1.AxisX.Clear();
+                Histogram1.AxisX.Add(new Axis
+                {
+                    Title = toggled ? "Associations" : "LOC"
+                });
             }
 
             
