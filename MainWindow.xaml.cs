@@ -55,10 +55,22 @@ namespace CodeAnalyzer
             }
         }
 
+        private void BTNScatterPlot_Click(object sender, RoutedEventArgs e)
+        {
+            Histogram1.IsEnabled = false;
+            Histogram1.Visibility = Visibility.Hidden;
+
+            ScatterPlot1.Visibility = Visibility.Visible;
+            ScatterPlot1.IsEnabled = true;
+        }
+
         private void BTNHistogram_Cick(object sender, RoutedEventArgs e)
         {
             ScatterPlot1.IsEnabled = false;
             ScatterPlot1.Visibility = Visibility.Hidden;
+
+            Histogram1.Visibility = Visibility.Visible;
+            Histogram1.IsEnabled = true;
         }
 
         private void PlotData()

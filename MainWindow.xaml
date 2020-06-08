@@ -44,6 +44,10 @@
                                 <local:CSClassesTooltip/>
                             </lvc:CartesianChart.DataTooltip>
                         </lvc:CartesianChart>
+
+                        <lvc:CartesianChart Name="Histogram1" Visibility="Hidden">
+                            
+                        </lvc:CartesianChart>
                     </Grid>
                 </Grid>
             </ScrollViewer>
@@ -64,7 +68,7 @@
                 <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"></DropShadowEffect>
             </Grid.Effect>
             <Grid Background="#004567">
-                <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFA4CBFA" FontSize="22"/>
+                <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Agency FB" Foreground="#FFA4CBFA" FontSize="22"/>
             </Grid>
             <StackPanel Grid.Row="1">
                 <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNLoadProject_Click">
@@ -74,7 +78,7 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#002537" BorderBrush="#FF000519">
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNScatterPlot_Click">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ScatterPlot" VerticalAlignment="Center" Foreground="White"/>
                         <TextBlock HorizontalAlignment="Center" Text="Scatter Plot" FontFamily="Global User Interface" Foreground="White"/>
