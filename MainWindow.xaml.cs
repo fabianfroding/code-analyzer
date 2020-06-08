@@ -4,7 +4,9 @@ using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Forms;
@@ -19,6 +21,8 @@ namespace CodeAnalyzer
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<int, string> Formatter { get; set; }
+
+        private bool ToggledAssociationsLOC = false;
 
         public MainWindow()
         {
@@ -48,7 +52,7 @@ namespace CodeAnalyzer
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
-                RowChart_PlotData();
+                RowChart_PlotData(false);
                 ScatterPlot_PlotData();
             }
         }
@@ -57,6 +61,7 @@ namespace CodeAnalyzer
         {
             Histogram1.IsEnabled = false;
             Histogram1.Visibility = Visibility.Hidden;
+            BTNToggleAssociatonsLOC.Visibility = Visibility.Hidden;
 
             ScatterPlot1.Visibility = Visibility.Visible;
             ScatterPlot1.IsEnabled = true;
@@ -69,6 +74,22 @@ namespace CodeAnalyzer
 
             Histogram1.Visibility = Visibility.Visible;
             Histogram1.IsEnabled = true;
+            BTNToggleAssociatonsLOC.Visibility = Visibility.Visible;
+        }
+
+        private void BTNToggleAssociatonsLOC_Click(object sender, RoutedEventArgs e)
+        {
+            if (ToggledAssociationsLOC)
+            {
+                RowChart_PlotData(false);
+                ToggledAssociationsLOC = false;
+            }
+            else
+            {
+                RowChart_PlotData(true);
+                ToggledAssociationsLOC = true;
+            }
+            
         }
 
         //============================================================
@@ -109,23 +130,40 @@ namespace CodeAnalyzer
             DataContext = this;
         }
 
-        private void RowChart_PlotData()
+        private void RowChart_PlotData(bool toggled)
         {
-            ChartValues<int> LOC = new ChartValues<int>();
+            ChartValues<int> Values = new ChartValues<int>();
             string[] names = new string[CSClassController.GetAllCSClasses().Count];
+            List<CSClass> SortedList;
+
+            if (toggled)
+            {
+                SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count).ToList();
+            }
+            else
+            {
+                SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.CountLOC()).ToList();
+            }
 
             for (int i = 0; i < CSClassController.GetAllCSClasses().Count; i++)
             {
-                LOC.Add(CSClassController.GetAllCSClasses()[i].CountLOC());
-                names[i] = CSClassController.GetAllCSClasses()[i].Name;
+                if (toggled)
+                {
+                    Values.Add(SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count);
+                }
+                else
+                {
+                    Values.Add(SortedList[i].CountLOC());
+                }
+                names[i] = SortedList[i].Name;
             }
 
             SeriesCollection = new SeriesCollection
             {
                 new RowSeries
                 {
-                    Title = "Classes",
-                    Values = LOC
+                    Title = toggled ? "Associations" : "LOC",
+                    Values = Values
                 }
             };
 
