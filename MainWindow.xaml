@@ -45,8 +45,16 @@
                             </lvc:CartesianChart.DataTooltip>
                         </lvc:CartesianChart>
 
-                        <lvc:CartesianChart Name="Histogram1" Visibility="Hidden">
-                            
+                        <lvc:CartesianChart Name="Histogram1" Series="{Binding SeriesCollection}" Grid.Row="1" LegendLocation="Right" Foreground="White" Visibility="Hidden">
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="LOC" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Classes" Labels="{Binding Labels}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.DataTooltip>
+                                <lvc:DefaultTooltip SelectionMode="SharedYValues"></lvc:DefaultTooltip>
+                            </lvc:CartesianChart.DataTooltip>
                         </lvc:CartesianChart>
                     </Grid>
                 </Grid>

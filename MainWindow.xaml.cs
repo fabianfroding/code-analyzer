@@ -1,39 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Diagnostics;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using CodeAnalyzer.Controllers;
 using CodeAnalyzer.Repositories;
 using LiveCharts;
-using CodeAnalyzer.Controllers;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
+using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Forms;
 
 namespace CodeAnalyzer
 {
     public partial class MainWindow : Window
     {
         public ChartValues<CSClass> CSClasses { get; set; }
+        
+
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<int, string> Formatter { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
-            ScatterPlot1.DataClick += ChartOnDataClick;
+            ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
         }
 
+        //============================================================
+        //  UI INTERACTIVES
+        //============================================================
         private void BTNClose_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
@@ -51,7 +48,8 @@ namespace CodeAnalyzer
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
-                PlotData();
+                //ScatterPlot_PlotData();
+                RowChart_PlotData();
             }
         }
 
@@ -59,6 +57,8 @@ namespace CodeAnalyzer
         {
             Histogram1.IsEnabled = false;
             Histogram1.Visibility = Visibility.Hidden;
+
+            ScatterPlot_PlotData();
 
             ScatterPlot1.Visibility = Visibility.Visible;
             ScatterPlot1.IsEnabled = true;
@@ -69,11 +69,16 @@ namespace CodeAnalyzer
             ScatterPlot1.IsEnabled = false;
             ScatterPlot1.Visibility = Visibility.Hidden;
 
+            //RowChart_PlotData();
+
             Histogram1.Visibility = Visibility.Visible;
             Histogram1.IsEnabled = true;
         }
 
-        private void PlotData()
+        //============================================================
+        //  BACKEND
+        //============================================================
+        private void ScatterPlot_PlotData()
         {
             CSClasses.Clear();
 
@@ -108,7 +113,33 @@ namespace CodeAnalyzer
             DataContext = this;
         }
 
-        private void ChartOnDataClick(object sender, ChartPoint p)
+        private void RowChart_PlotData()
+        {
+            ChartValues<int> LOC = new ChartValues<int>();
+            List<string> classNames = new List<string>();
+
+            foreach (CSClass _CSClass in CSClassController.GetAllCSClasses())
+            {
+                LOC.Add(_CSClass.CountLOC());
+                classNames.Add(_CSClass.Name);
+            }
+
+            SeriesCollection = new SeriesCollection
+            {
+                new RowSeries
+                {
+                    Title = "Classes",
+                    Values = new ChartValues<int> { 10, 50, 39, 50 }
+                }
+            };
+
+            Labels = new[] { "Maria", "Susan", "Charles", "Frida" };
+            Formatter = value => value.ToString("N");
+
+            DataContext = this;
+        }
+
+        private void ScatterPlot_ChartOnDataClick(object sender, ChartPoint p)
         {
             CSClass _CSClass = CSClassController.GetCSClassByIndex(p.Key);
 
