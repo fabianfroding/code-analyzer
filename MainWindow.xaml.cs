@@ -6,6 +6,7 @@ using LiveCharts.Wpf;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
@@ -22,7 +23,7 @@ namespace CodeAnalyzer
         public string[] Labels { get; set; }
         public Func<int, string> Formatter { get; set; }
 
-        private bool ToggledAssociationsLOC = false;
+        private bool ToggledAssociationsLOC = true;
 
         public MainWindow()
         {
@@ -81,12 +82,14 @@ namespace CodeAnalyzer
         {
             if (ToggledAssociationsLOC)
             {
-                RowChart_PlotData(false);
+                Debug.WriteLine("Plotting associations");
+                RowChart_PlotData(true);
                 ToggledAssociationsLOC = false;
             }
             else
             {
-                RowChart_PlotData(true);
+                Debug.WriteLine("Plotting LOC");
+                RowChart_PlotData(false);
                 ToggledAssociationsLOC = true;
             }
             
@@ -139,17 +142,29 @@ namespace CodeAnalyzer
             if (toggled)
             {
                 SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count).ToList();
+                Histogram1.AxisX.Clear();
+                Histogram1.AxisX.Add(new Axis
+                {
+                    Title = toggled ? "Associations" : "LOC",
+                    Separator = new Separator
+                    {
+                        Step = 1,
+                        IsEnabled = false // Does what? Maybe prevents separator step to automatically change when resizing window?
+                    }
+                });
             }
             else
             {
                 SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.CountLOC()).ToList();
             }
 
+            
+
             for (int i = 0; i < CSClassController.GetAllCSClasses().Count; i++)
             {
                 if (toggled)
                 {
-                    Values.Add(SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count);
+                    Values.Add(SortedList[i].GetAssociationsInListOfCSClasses(SortedList).Count);
                 }
                 else
                 {
