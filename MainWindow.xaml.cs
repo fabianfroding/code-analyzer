@@ -48,8 +48,8 @@ namespace CodeAnalyzer
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
-                //ScatterPlot_PlotData();
                 RowChart_PlotData();
+                ScatterPlot_PlotData();
             }
         }
 
@@ -57,8 +57,6 @@ namespace CodeAnalyzer
         {
             Histogram1.IsEnabled = false;
             Histogram1.Visibility = Visibility.Hidden;
-
-            ScatterPlot_PlotData();
 
             ScatterPlot1.Visibility = Visibility.Visible;
             ScatterPlot1.IsEnabled = true;
@@ -68,8 +66,6 @@ namespace CodeAnalyzer
         {
             ScatterPlot1.IsEnabled = false;
             ScatterPlot1.Visibility = Visibility.Hidden;
-
-            //RowChart_PlotData();
 
             Histogram1.Visibility = Visibility.Visible;
             Histogram1.IsEnabled = true;
@@ -116,12 +112,12 @@ namespace CodeAnalyzer
         private void RowChart_PlotData()
         {
             ChartValues<int> LOC = new ChartValues<int>();
-            List<string> classNames = new List<string>();
+            string[] names = new string[CSClassController.GetAllCSClasses().Count];
 
-            foreach (CSClass _CSClass in CSClassController.GetAllCSClasses())
+            for (int i = 0; i < CSClassController.GetAllCSClasses().Count; i++)
             {
-                LOC.Add(_CSClass.CountLOC());
-                classNames.Add(_CSClass.Name);
+                LOC.Add(CSClassController.GetAllCSClasses()[i].CountLOC());
+                names[i] = CSClassController.GetAllCSClasses()[i].Name;
             }
 
             SeriesCollection = new SeriesCollection
@@ -129,11 +125,11 @@ namespace CodeAnalyzer
                 new RowSeries
                 {
                     Title = "Classes",
-                    Values = new ChartValues<int> { 10, 50, 39, 50 }
+                    Values = LOC
                 }
             };
 
-            Labels = new[] { "Maria", "Susan", "Charles", "Frida" };
+            Labels = names;
             Formatter = value => value.ToString("N");
 
             DataContext = this;
