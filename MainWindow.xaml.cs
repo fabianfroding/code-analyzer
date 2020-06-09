@@ -192,7 +192,7 @@ namespace CodeAnalyzer
 
             RowSeries = new RowSeries
             {
-                Title = "Test",
+                Title = toggled ? "Associations" : "LOC",
                 Values = Values
             };
 
