@@ -20,8 +20,10 @@ namespace CodeAnalyzer
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<int, string> Formatter { get; set; }
-        ChartValues<int> Values;
-        List<string> names;
+        public ChartValues<int> Values;
+        public List<string> names;
+        public List<CSClass> SortedList;
+        public RowSeries RowSeries;
 
         private bool ToggledAssociationsLOC = true;
 
@@ -34,6 +36,9 @@ namespace CodeAnalyzer
 
             Values = new ChartValues<int>();
             names = new List<string>();
+            SortedList = new List<CSClass>();
+
+            SeriesCollection = new SeriesCollection();
         }
 
         //============================================================
@@ -141,7 +146,7 @@ namespace CodeAnalyzer
         {
             Values.Clear();
             names.Clear();
-            List<CSClass> SortedList;
+            SortedList.Clear();
 
             if (toggled)
             {
@@ -149,7 +154,7 @@ namespace CodeAnalyzer
                 Histogram1.AxisX.Clear();
                 Histogram1.AxisX.Add(new Axis
                 {
-                    Title = toggled ? "Associations" : "LOC",
+                    Title = "Associations",
                     Separator = new Separator
                     {
                         Step = 1,
@@ -163,10 +168,9 @@ namespace CodeAnalyzer
                 Histogram1.AxisX.Clear();
                 Histogram1.AxisX.Add(new Axis
                 {
-                    Title = toggled ? "Associations" : "LOC"
+                    Title = "LOC"
                 });
             }
-
 
             for (int i = 0; i < CSClassController.GetAllCSClasses().Count; i++)
             {
@@ -181,14 +185,18 @@ namespace CodeAnalyzer
                 names.Add(SortedList[i].Name);
             }
 
-            SeriesCollection = new SeriesCollection
+            if (RowSeries != null)
             {
-                new RowSeries
-                {
-                    Title = "LOC",
-                    Values = Values
-                }
+                SeriesCollection.Remove(RowSeries);
+            }
+
+            RowSeries = new RowSeries
+            {
+                Title = "Test",
+                Values = Values
             };
+
+            SeriesCollection.Add(RowSeries);
 
 
             Labels = names.ToArray();
