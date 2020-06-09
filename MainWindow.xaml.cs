@@ -10,35 +10,30 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 
 namespace CodeAnalyzer
 {
     public partial class MainWindow : Window
     {
+        // Scatter Plot chart properties.
         public ChartValues<CSClass> CSClasses { get; set; }
-        
 
+        // Row chart properties.
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<int, string> Formatter { get; set; }
-        public ChartValues<int> Values;
-        public List<string> names;
-        public List<CSClass> SortedList;
-        public RowSeries RowSeries;
-
+        private RowSeries RowSeries;
         private bool ToggledAssociationsLOC = true;
 
+        //============================================================
+        //  CONSTRUCTOR
+        //============================================================
         public MainWindow()
         {
             InitializeComponent();
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
             ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
-
-            Values = new ChartValues<int>();
-            names = new List<string>();
-            SortedList = new List<CSClass>();
 
             SeriesCollection = new SeriesCollection();
         }
@@ -146,9 +141,9 @@ namespace CodeAnalyzer
 
         private void RowChart_PlotData(bool toggled)
         {
-            Values.Clear();
-            names.Clear();
-            SortedList.Clear();
+            ChartValues<int> Values = new ChartValues<int>();
+            List<string> names = new List<string>();
+            List<CSClass> SortedList = new List<CSClass>();
 
             if (toggled)
             {
