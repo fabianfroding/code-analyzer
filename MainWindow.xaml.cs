@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace CodeAnalyzer
 {
@@ -189,19 +191,16 @@ namespace CodeAnalyzer
             {
                 SeriesCollection.Remove(RowSeries);
             }
-
             RowSeries = new RowSeries
             {
                 Title = toggled ? "Associations" : "LOC",
+                Fill = (SolidColorBrush)new BrushConverter().ConvertFromString("#6df4e9"),
                 Values = Values
             };
-
             SeriesCollection.Add(RowSeries);
-
 
             Labels = names.ToArray();
             Formatter = value => value.ToString("N");
-
             DataContext = this;
         }
 

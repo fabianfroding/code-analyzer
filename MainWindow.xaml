@@ -44,7 +44,7 @@
                         </Grid.RowDefinitions>
                         <lvc:CartesianChart Name="ScatterPlot1" Grid.Row="1" LegendLocation="Right" Foreground="White">
                             <lvc:CartesianChart.Series>
-                                <lvc:ScatterSeries Name="ScatterSeries" Title="Associations over LOC" Values="{Binding CSClasses}" />
+                                <lvc:ScatterSeries Name="ScatterSeries" Title="Associations over LOC" Values="{Binding CSClasses}" Fill="#6df4e9" />
                             </lvc:CartesianChart.Series>
                             <lvc:CartesianChart.DataTooltip>
                                 <local:CSClassesTooltip/>
