@@ -4,12 +4,10 @@ using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace CodeAnalyzer
@@ -22,6 +20,8 @@ namespace CodeAnalyzer
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<int, string> Formatter { get; set; }
+        ChartValues<int> Values;
+        List<string> names;
 
         private bool ToggledAssociationsLOC = true;
 
@@ -31,6 +31,9 @@ namespace CodeAnalyzer
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
             ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
+
+            Values = new ChartValues<int>();
+            names = new List<string>();
         }
 
         //============================================================
@@ -54,6 +57,7 @@ namespace CodeAnalyzer
             {
                 CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
                 RowChart_PlotData(false);
+                ToggledAssociationsLOC = true;
                 ScatterPlot_PlotData();
             }
         }
@@ -135,8 +139,8 @@ namespace CodeAnalyzer
 
         private void RowChart_PlotData(bool toggled)
         {
-            ChartValues<int> Values = new ChartValues<int>();
-            string[] names = new string[CSClassController.GetAllCSClasses().Count];
+            Values.Clear();
+            names.Clear();
             List<CSClass> SortedList;
 
             if (toggled)
@@ -163,7 +167,6 @@ namespace CodeAnalyzer
                 });
             }
 
-            
 
             for (int i = 0; i < CSClassController.GetAllCSClasses().Count; i++)
             {
@@ -175,19 +178,20 @@ namespace CodeAnalyzer
                 {
                     Values.Add(SortedList[i].CountLOC());
                 }
-                names[i] = SortedList[i].Name;
+                names.Add(SortedList[i].Name);
             }
 
             SeriesCollection = new SeriesCollection
             {
                 new RowSeries
                 {
-                    Title = toggled ? "Associations" : "LOC",
+                    Title = "LOC",
                     Values = Values
                 }
             };
 
-            Labels = names;
+
+            Labels = names.ToArray();
             Formatter = value => value.ToString("N");
 
             DataContext = this;
