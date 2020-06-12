@@ -20,8 +20,8 @@ namespace CodeAnalyzer
 
         // Row chart properties.
         public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
         public Func<int, string> Formatter { get; set; }
+        public List<string> names { get; set; }
         private RowSeries RowSeries;
         private bool ToggledAssociationsLOC = true;
 
@@ -36,6 +36,7 @@ namespace CodeAnalyzer
             ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
 
             SeriesCollection = new SeriesCollection();
+            names = new List<string>();
         }
 
         //============================================================
@@ -142,8 +143,8 @@ namespace CodeAnalyzer
         private void RowChart_PlotData(bool toggled)
         {
             ChartValues<int> Values = new ChartValues<int>();
-            List<string> names = new List<string>();
             List<CSClass> SortedList = new List<CSClass>();
+            names.Clear();
 
             if (toggled)
             {
@@ -192,9 +193,8 @@ namespace CodeAnalyzer
                 Fill = (SolidColorBrush)new BrushConverter().ConvertFromString("#6df4e9"),
                 Values = Values
             };
-            SeriesCollection.Add(RowSeries);
 
-            Labels = names.ToArray();
+            SeriesCollection.Add(RowSeries);
             Formatter = value => value.ToString("N");
             DataContext = this;
         }
