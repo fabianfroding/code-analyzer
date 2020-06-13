@@ -89,13 +89,11 @@ namespace CodeAnalyzer
         {
             if (ToggledAssociationsLOC)
             {
-                Debug.WriteLine("Plotting associations");
                 RowChart_PlotData(true);
                 ToggledAssociationsLOC = false;
             }
             else
             {
-                Debug.WriteLine("Plotting LOC");
                 RowChart_PlotData(false);
                 ToggledAssociationsLOC = true;
             }
@@ -109,9 +107,9 @@ namespace CodeAnalyzer
         {
             CSClasses.Clear();
 
-            foreach (CSClass _CSClass in CSClassController.GetAllCSClasses())
+            foreach (CSClass _CSClass in CSClassController.GetAllCSClasses(false, false))
             {
-                _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses());
+                _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses(false, false));
                 _CSClass.CountLOC();
                 CSClasses.Add(_CSClass);
             }
@@ -148,7 +146,7 @@ namespace CodeAnalyzer
 
             if (toggled)
             {
-                SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count).ToList();
+                SortedList = CSClassController.GetAllCSClasses(true, false);
                 Histogram1.AxisX.Clear();
                 Histogram1.AxisX.Add(new Axis
                 {
@@ -162,7 +160,7 @@ namespace CodeAnalyzer
             }
             else
             {
-                SortedList = CSClassController.GetAllCSClasses().OrderBy(o => o.CountLOC()).ToList();
+                SortedList = CSClassController.GetAllCSClasses(false, true);
                 Histogram1.AxisX.Clear();
                 Histogram1.AxisX.Add(new Axis
                 {
@@ -170,7 +168,7 @@ namespace CodeAnalyzer
                 });
             }
 
-            for (int i = 0; i < CSClassController.GetAllCSClasses().Count; i++)
+            for (int i = SortedList.Count < 25 ? SortedList.Count - 1 : 24; i >= 0; i--)
             {
                 if (toggled)
                 {
@@ -181,6 +179,7 @@ namespace CodeAnalyzer
                     Values.Add(SortedList[i].CountLOC());
                 }
                 names.Add(SortedList[i].Name);
+                Debug.WriteLine(i + " " + SortedList[i].Name);
             }
 
             if (RowSeries != null)

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 namespace CodeAnalyzer
 {
@@ -78,7 +77,7 @@ namespace CodeAnalyzer
                 {
                     if (CodeLines[j].Contains(CSClasses[i].Name) && Name != CSClasses[i].Name)
                     {
-                        Debug.WriteLine(Name + " uses " + CSClasses[i].Name);
+                        //Debug.WriteLine(Name + " uses " + CSClasses[i].Name);
                         associations.Add(CSClasses[i]);
                         associationAlreadyFound = true;
                     }

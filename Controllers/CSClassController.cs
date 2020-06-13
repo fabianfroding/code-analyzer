@@ -1,13 +1,23 @@
 ﻿using CodeAnalyzer.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CodeAnalyzer.Controllers
 {
     public static class CSClassController
     {
-        public static List<CSClass> GetAllCSClasses()
+        public static List<CSClass> GetAllCSClasses(bool sortByAssociations, bool sortByLOC)
         {
-            return CSClassRepository.GetAllCSClasses();
+            List<CSClass> classes = CSClassRepository.GetAllCSClasses();
+            if (sortByAssociations)
+            {
+                classes = classes.OrderByDescending(o => o.GetAssociationsInListOfCSClasses(classes).Count).ToList();
+            }
+            if (sortByLOC)
+            {
+                classes = classes.OrderByDescending(o => o.CountLOC()).ToList();
+            }
+            return classes;
         }
 
         public static CSClass GetCSClassByName(string name)
@@ -19,5 +29,6 @@ namespace CodeAnalyzer.Controllers
         {
             return CSClassRepository.GetCSClassByIndex(index);
         }
+
     }
 }

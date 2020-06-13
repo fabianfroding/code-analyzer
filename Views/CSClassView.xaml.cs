@@ -16,7 +16,7 @@ namespace CodeAnalyzer
         {
             TextBoxName.Text = _CSClass.Name;
             TextBoxLOC.Text = "LOC: " + _CSClass.CountLOC();
-            TextBoxAssociations.Text = "Associations: " + _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count;
+            TextBoxAssociations.Text = "Associations: " + _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses(false, false)).Count;
         }
     }
 }
