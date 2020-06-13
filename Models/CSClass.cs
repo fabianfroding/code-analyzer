@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace CodeAnalyzer
 {
@@ -21,17 +22,45 @@ namespace CodeAnalyzer
         public int CountLOC()
         {
             int lineCount = 0;
+            bool multiLineComment = false;
             for (int i = 0; i < CodeLines.Count; i++)
             {
+                string lineTrimmed = CodeLines[i].Trim();
 
-                if (CodeLines[i].Trim().StartsWith("//"))
+                if (lineTrimmed.StartsWith("/*"))
                 {
-                    CodeLines[i] = "";
+                    multiLineComment = true;
                 }
-                if (CodeLines[i] != "")
+                else if (lineTrimmed.Contains("/*"))
                 {
                     lineCount++;
+                    multiLineComment = true;
                 }
+                if (lineTrimmed.EndsWith("*/"))
+                {
+                    multiLineComment = false;
+                }
+                else if (lineTrimmed.Contains("*/"))
+                {
+                    lineCount++;
+                    multiLineComment = false;
+                }
+
+                if (!multiLineComment)
+                {
+                    if (lineTrimmed != "" &&
+                        !lineTrimmed.StartsWith("//") &&
+                        !lineTrimmed.StartsWith("using") &&
+                        lineTrimmed != "{" &&
+                        lineTrimmed != "}" &&
+                        lineTrimmed != "(" &&
+                        lineTrimmed != ")"
+                    )
+                    {
+                        lineCount++;
+                    }
+                }
+
             }
             NumLOC = lineCount;
             return lineCount;
