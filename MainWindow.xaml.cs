@@ -6,7 +6,6 @@ using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -179,7 +178,6 @@ namespace CodeAnalyzer
                     Values.Add(SortedList[i].CountLOC());
                 }
                 names.Add(SortedList[i].Name);
-                Debug.WriteLine(i + " " + SortedList[i].Name);
             }
 
             if (RowSeries != null)
