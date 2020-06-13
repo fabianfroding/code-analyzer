@@ -143,8 +143,6 @@ namespace CodeAnalyzer
             List<CSClass> SortedList = new List<CSClass>();
             names.Clear();
 
-            
-
             if (toggled)
             {
                 SortedList = CSClassController.GetAllCSClasses(true, false);
