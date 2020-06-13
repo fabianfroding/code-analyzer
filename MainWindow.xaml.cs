@@ -143,29 +143,19 @@ namespace CodeAnalyzer
             List<CSClass> SortedList = new List<CSClass>();
             names.Clear();
 
+            Histogram1.AxisX.Clear();
+            Axis axis = new Axis();
             if (toggled)
             {
                 SortedList = CSClassController.GetAllCSClasses(true, false);
-                Histogram1.AxisX.Clear();
-                Histogram1.AxisX.Add(new Axis
-                {
-                    Title = "Associations",
-                    Separator = new Separator
-                    {
-                        Step = 1,
-                        IsEnabled = false // Does what? Maybe prevents separator step to automatically change when resizing window?
-                    }
-                });
+                axis.Title = "Associations";
             }
             else
             {
                 SortedList = CSClassController.GetAllCSClasses(false, true);
-                Histogram1.AxisX.Clear();
-                Histogram1.AxisX.Add(new Axis
-                {
-                    Title = "LOC"
-                });
+                axis.Title = "LOC";
             }
+            Histogram1.AxisX.Add(axis);
 
             for (int i = SortedList.Count < 25 ? SortedList.Count - 1 : 24; i >= 0; i--)
             {
