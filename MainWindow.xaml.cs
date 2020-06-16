@@ -48,7 +48,21 @@ namespace CodeAnalyzer
 
         private void BTNMinimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void BTNMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (BTNFullScreenIcon.Kind == MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize)
+            {
+                this.WindowState = WindowState.Maximized;
+                BTNFullScreenIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+                BTNFullScreenIcon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
+            }
         }
 
         private void GridBarTitle_MouseDown(object sender, RoutedEventArgs e)
@@ -117,14 +131,6 @@ namespace CodeAnalyzer
                 _CSClass.CountLOC();
                 CSClasses.Add(_CSClass);
             }
-
-            
-            // Force y-axis to have interval based on 1.
-            ScatterPlot1.AxisY.Clear();
-            ScatterPlot1.AxisY.Add(new Axis
-            {
-                Title = "Associations"
-        });
 
             // Let create a mapper so LiveCharts know how to plot our CSClass class
             var _CSClassVm = Mappers.Xy<CSClass>()

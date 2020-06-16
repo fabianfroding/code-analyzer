@@ -46,6 +46,12 @@
                             <lvc:CartesianChart.Series>
                                 <lvc:ScatterSeries Name="ScatterSeries" Title="Associations over LOC" Values="{Binding CSClasses}" Fill="#6df4e9" />
                             </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Associations"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="LOC"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.DataTooltip>
                                 <local:CSClassesTooltip/>
                             </lvc:CartesianChart.DataTooltip>
@@ -125,8 +131,8 @@
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNMinimize_Click" Margin="0,2">
                     <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Margin="0,2">
-                    <materialDesign:PackIcon Kind="WindowMaximize"/>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNMaximize_Click" Margin="0,2">
+                    <materialDesign:PackIcon x:Name="BTNFullScreenIcon" Kind="WindowMaximize"/>
                 </Button>
                 <Button x:Name="BTNClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNClose_Click" Margin="0,2">
                     <materialDesign:PackIcon Kind="Close"/>
