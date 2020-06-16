@@ -46,6 +46,11 @@ namespace CodeAnalyzer
             System.Windows.Application.Current.Shutdown();
         }
 
+        private void BTNMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
         private void GridBarTitle_MouseDown(object sender, RoutedEventArgs e)
         {
             DragMove();
@@ -118,13 +123,8 @@ namespace CodeAnalyzer
             ScatterPlot1.AxisY.Clear();
             ScatterPlot1.AxisY.Add(new Axis
             {
-                Title = "Associations",
-                Separator = new LiveCharts.Wpf.Separator
-                {
-                    Step = 1,
-                    IsEnabled = false // Does what? Maybe prevents separator step to automatically change when resizing window?
-                }
-            });
+                Title = "Associations"
+        });
 
             // Let create a mapper so LiveCharts know how to plot our CSClass class
             var _CSClassVm = Mappers.Xy<CSClass>()

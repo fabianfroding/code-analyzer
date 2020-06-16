@@ -122,7 +122,7 @@
 
         <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#000519" MouseDown="GridBarTitle_MouseDown">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Margin="0,2">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Click="BTNMinimize_Click" Margin="0,2">
                     <materialDesign:PackIcon Kind="WindowMinimize"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#e2fbff" Margin="0,2">
