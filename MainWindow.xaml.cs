@@ -23,6 +23,7 @@ namespace CodeAnalyzer
         public List<string> names { get; set; }
         private RowSeries RowSeries;
         private bool ToggledAssociationsLOC = true;
+        private List<CSClass> SortedList;
 
         //============================================================
         //  CONSTRUCTOR
@@ -33,6 +34,7 @@ namespace CodeAnalyzer
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
             ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
+            Histogram1.DataClick += RowChart_ChartOnDataClick;
 
             SeriesCollection = new SeriesCollection();
             names = new List<string>();
@@ -146,7 +148,7 @@ namespace CodeAnalyzer
         private void RowChart_PlotData(bool toggled)
         {
             ChartValues<int> Values = new ChartValues<int>();
-            List<CSClass> SortedList = new List<CSClass>();
+            SortedList = new List<CSClass>();
             names.Clear();
 
             Histogram1.AxisX.Clear();
@@ -212,6 +214,21 @@ namespace CodeAnalyzer
             };
 
             window.ShowDialog();
+        }
+
+        private void RowChart_ChartOnDataClick(object sender, ChartPoint p)
+        {
+            CSClass _CSClass = null;
+
+            // TODO: Implement logic to get corrent class
+
+            /*Window window = new Window
+            {
+                Title = _CSClass.Name,
+                Content = new CSClassView(_CSClass)
+            };
+
+            window.ShowDialog();*/
         }
 
     }

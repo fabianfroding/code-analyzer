@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CodeAnalyzer"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="23" Margin="56,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="TextBoxLOC" HorizontalAlignment="Left" Height="23" Margin="56,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox x:Name="TextBoxAssociations" HorizontalAlignment="Left" Height="23" Margin="56,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TreeView x:Name="TreeViewAssociations" HorizontalAlignment="Left" Height="175" Margin="218,46,0,0" VerticalAlignment="Top" Width="137"/>
+             d:DesignHeight="450" d:DesignWidth="500">
+    <Grid Background="#002c3A">
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="23" Margin="56,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White" Background="Transparent" TextDecorations="Underline"/>
+        <TextBox x:Name="TextBoxLOC" HorizontalAlignment="Left" Height="23" Margin="56,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
+        <TextBox x:Name="TextBoxAssociations" HorizontalAlignment="Left" Height="23" Margin="56,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
+        <ListBox x:Name="ListBox1" HorizontalAlignment="Left" Height="378" Margin="217,46,0,0" VerticalAlignment="Top" Width="196" Foreground="#DDFFFFFF"/>
+
     </Grid>
 </UserControl>
