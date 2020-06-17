@@ -167,13 +167,22 @@ namespace CodeAnalyzer
             {
                 if (toggled)
                 {
-                    Values.Add(SortedList[i].GetAssociationsInListOfCSClasses(SortedList).Count);
+                    int numAssociations = SortedList[i].GetAssociationsInListOfCSClasses(SortedList).Count;
+                    if (numAssociations > 0)
+                    {
+                        Values.Add(numAssociations);
+                        names.Add(SortedList[i].Name);
+                    }
                 }
                 else
                 {
-                    Values.Add(SortedList[i].CountLOC());
+                    int numLOC = SortedList[i].CountLOC();
+                    if (numLOC > 0)
+                    {
+                        Values.Add(numLOC);
+                        names.Add(SortedList[i].Name);
+                    }
                 }
-                names.Add(SortedList[i].Name);
             }
 
             if (RowSeries != null)
