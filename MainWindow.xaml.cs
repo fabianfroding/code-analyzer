@@ -120,6 +120,11 @@ namespace CodeAnalyzer
             
         }
 
+        private void BTNAssociations_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Associations");
+        }
+
         //============================================================
         //  BACKEND
         //============================================================
