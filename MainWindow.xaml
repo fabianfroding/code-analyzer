@@ -76,6 +76,9 @@
                     </Grid>
                 </Grid>
             </ScrollViewer>
+
+            <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" Background="#FFBCBCBC"/>
+            <WebBrowser Grid.Column="2" Name="webBrowser"/>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -119,7 +122,7 @@
 
                 <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNAssociations_Click">
                     <Grid Width="150">
-                        <materialDesign:PackIcon Kind="Flowchart" VerticalAlignment="Center" Foreground="White"/>
+                        <materialDesign:PackIcon Kind="Graphql" VerticalAlignment="Center" Foreground="White"/>
                         <TextBlock HorizontalAlignment="Center" Text="Associations" FontFamily="Global User Interface" Foreground="White"/>
                     </Grid>
                 </Button>
@@ -139,5 +142,10 @@
                 </Button>
             </StackPanel>
         </Grid>
+
+        
+
     </Grid>
+    
+    
 </Window>

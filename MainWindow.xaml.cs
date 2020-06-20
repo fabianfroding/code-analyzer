@@ -30,6 +30,8 @@ namespace CodeAnalyzer
         //============================================================
         public MainWindow()
         {
+            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Debug.AutoFlush = true;
             InitializeComponent();
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
@@ -123,6 +125,27 @@ namespace CodeAnalyzer
         private void BTNAssociations_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Associations");
+
+            ScatterPlot1.IsEnabled = false;
+            ScatterPlot1.Visibility = Visibility.Hidden;
+
+            Histogram1.IsEnabled = false;
+            Histogram1.Visibility = Visibility.Hidden;
+            BTNToggleAssociatonsLOC.Visibility = Visibility.Hidden;
+
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetEntryAssembly();
+            System.IO.Stream stream = assembly.GetManifestResourceStream("CodeAnalyzer.lesmiserables.html");
+            if (stream != null)
+            {
+                webBrowser.NavigateToStream(stream);
+            }
+            else
+            {
+                Debug.WriteLine(this.GetType().Assembly.GetManifestResourceNames());
+                Debug.WriteLine(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames());
+                Debug.WriteLine("stream is null");
+            }
+            
         }
 
         //============================================================
