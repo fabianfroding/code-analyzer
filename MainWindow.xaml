@@ -77,8 +77,8 @@
                 </Grid>
             </ScrollViewer>
 
-            <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" Background="#FFBCBCBC"/>
-            <WebBrowser Grid.Column="2" Name="webBrowser"/>
+            <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" Background="#001b29"/>
+            <WebBrowser Grid.Column="2" Name="webBrowser" Visibility="Hidden"/>
         </Grid>
 
         <Grid Grid.Row="1">

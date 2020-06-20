@@ -89,6 +89,8 @@ namespace CodeAnalyzer
 
         private void BTNScatterPlot_Click(object sender, RoutedEventArgs e)
         {
+            webBrowser.Visibility = Visibility.Hidden;
+
             Histogram1.IsEnabled = false;
             Histogram1.Visibility = Visibility.Hidden;
             BTNToggleAssociatonsLOC.Visibility = Visibility.Hidden;
@@ -99,6 +101,8 @@ namespace CodeAnalyzer
 
         private void BTNHistogram_Cick(object sender, RoutedEventArgs e)
         {
+            webBrowser.Visibility = Visibility.Hidden;
+
             ScatterPlot1.IsEnabled = false;
             ScatterPlot1.Visibility = Visibility.Hidden;
 
@@ -124,8 +128,6 @@ namespace CodeAnalyzer
 
         private void BTNAssociations_Click(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Associations");
-
             ScatterPlot1.IsEnabled = false;
             ScatterPlot1.Visibility = Visibility.Hidden;
 
@@ -133,19 +135,9 @@ namespace CodeAnalyzer
             Histogram1.Visibility = Visibility.Hidden;
             BTNToggleAssociatonsLOC.Visibility = Visibility.Hidden;
 
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetEntryAssembly();
-            System.IO.Stream stream = assembly.GetManifestResourceStream("CodeAnalyzer.lesmiserables.html");
-            if (stream != null)
-            {
-                webBrowser.NavigateToStream(stream);
-            }
-            else
-            {
-                Debug.WriteLine(this.GetType().Assembly.GetManifestResourceNames());
-                Debug.WriteLine(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames());
-                Debug.WriteLine("stream is null");
-            }
-            
+            webBrowser.Visibility = Visibility.Visible;
+            webBrowser.NavigateToStream(System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream("CodeAnalyzer.ForceDirectedGraph.html"));
+
         }
 
         //============================================================

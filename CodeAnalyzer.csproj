@@ -124,6 +124,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="temp.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -132,7 +133,7 @@
     <Resource Include="Resources\theme.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="lesmiserables.html" />
+    <EmbeddedResource Include="ForceDirectedGraph.html" />
     <EmbeddedResource Include="test.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
