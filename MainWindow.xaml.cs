@@ -30,7 +30,7 @@ namespace CodeAnalyzer
         //============================================================
         public MainWindow()
         {
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            //Debug.Listeners.Add(new TextWriterTraceListener(Console.Out)); // Causes methods to run twice... ? Or just the Debug.WriteLine?
             Debug.AutoFlush = true;
             InitializeComponent();
 
@@ -138,6 +138,7 @@ namespace CodeAnalyzer
             webBrowser.Visibility = Visibility.Visible;
             webBrowser.NavigateToStream(System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream("CodeAnalyzer.ForceDirectedGraph.html"));
 
+            JSDocumentWriter.CreateJSDocument(@"..\..\Resources\Test.js");
         }
 
         //============================================================

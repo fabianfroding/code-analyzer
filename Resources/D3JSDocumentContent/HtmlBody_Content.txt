@@ -1,0 +1,9 @@
+﻿<body>
+    <div id="body">
+        <div id="footer">
+            <!-- Graph Title -->
+            <div class="hint"> <!-- Graph Subtitle --> </div>
+        </div>
+    </div>
+    <svg width="960" height="600"></svg>
+</body>

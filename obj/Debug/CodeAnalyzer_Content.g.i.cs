@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("test.html")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/d3jsdocumentcontent/scriptjsondata_content.txt")]
 
 
