@@ -6,6 +6,7 @@ using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -135,10 +136,11 @@ namespace CodeAnalyzer
             Histogram1.Visibility = Visibility.Hidden;
             BTNToggleAssociatonsLOC.Visibility = Visibility.Hidden;
 
-            webBrowser.Visibility = Visibility.Visible;
-            webBrowser.NavigateToStream(System.Reflection.Assembly.GetEntryAssembly().GetManifestResourceStream("CodeAnalyzer.ForceDirectedGraph.html"));
+            string path = @"..\..\Resources\ForceDirectedGraph.html";
+            D3WebDocumentWriter.CreateJSDocument(path);
 
-            JSDocumentWriter.CreateJSDocument(@"..\..\Resources\Test.js");
+            webBrowser.Visibility = Visibility.Visible;
+            webBrowser.Navigate(new Uri(String.Format("file:///{0}/{1}", Directory.GetCurrentDirectory(), path)));
         }
 
         //============================================================
