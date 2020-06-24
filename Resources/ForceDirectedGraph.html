@@ -144,16 +144,19 @@
         callback(null, json);
     }
 </script><script>
-    var tempdata = {
-        "nodes": [
-            { "id": "Class1", "group": 1 },
-            { "id": "Class2", "group": 1 },
-            { "id": "Class3", "group": 1 }
-        ],
-        "links": [
-            { "source": "Class1", "target": "Class2", "value": 1 }
-        ]
-    };
+var tempdata = {
+"nodes": [
+{ "id": "PlanetMovement", "group": 1 },
+{ "id": "PlanetRingMovement", "group": 1 },
+{ "id": "PlayerCamera", "group": 1 },
+{ "id": "PlayerController", "group": 1 },
+{ "id": "PlayerPlaceholder", "group": 1 }
+],
+"links": [
+{"source": "PlayerCamera", "target": "PlayerController", "value": 1 },
+{"source": "PlayerController", "target": "PlayerPlaceholder", "value": 1 },
+]
+};
 </script><script>
     var svg = d3.select("svg"),
         width = +svg.attr("width"),
