@@ -86,6 +86,10 @@ namespace CodeAnalyzer
                 ToggledAssociationsLOC = true;
                 ScatterPlot_PlotData();
             }
+
+            BTNScatterPlot.IsEnabled = true;
+            BTNRowChart.IsEnabled = true;
+            BTNForceDirectedGraph.IsEnabled = true;
         }
 
         private void BTNScatterPlot_Click(object sender, RoutedEventArgs e)

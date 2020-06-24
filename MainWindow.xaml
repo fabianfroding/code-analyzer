@@ -106,21 +106,21 @@
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNScatterPlot_Click">
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Name="BTNScatterPlot" Click="BTNScatterPlot_Click" IsEnabled="false">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="ScatterPlot" VerticalAlignment="Center" Foreground="White"/>
                         <TextBlock HorizontalAlignment="Center" Text="Scatter" FontFamily="Global User Interface" Foreground="White"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNHistogram_Cick">
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Name="BTNRowChart" Click="BTNHistogram_Cick" IsEnabled="false">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="BarChart" VerticalAlignment="Center" Foreground="White"/>
                         <TextBlock HorizontalAlignment="Center" Text="Top 25" FontFamily="Global User Interface" Foreground="White"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Click="BTNAssociations_Click">
+                <Button Margin="10" Background="#002537" BorderBrush="#FF000519" Name="BTNForceDirectedGraph" Click="BTNAssociations_Click" IsEnabled="false">
                     <Grid Width="150">
                         <materialDesign:PackIcon Kind="Graphql" VerticalAlignment="Center" Foreground="White"/>
                         <TextBlock HorizontalAlignment="Center" Text="Associations" FontFamily="Global User Interface" Foreground="White"/>
