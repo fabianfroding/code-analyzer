@@ -85,6 +85,12 @@ namespace CodeAnalyzer
                 RowChart_PlotData(false);
                 ToggledAssociationsLOC = true;
                 ScatterPlot_PlotData();
+
+                // If current view is Force Directed Graph, refresh the graph to show the loaded project.
+                if (webBrowser.Visibility == Visibility.Visible)
+                {
+                    BTNAssociations_Click(this, null);
+                }
             }
 
             BTNScatterPlot.IsEnabled = true;
