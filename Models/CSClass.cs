@@ -75,7 +75,9 @@ namespace CodeAnalyzer
 
                 for (int j = 0; j < CodeLines.Count && !associationAlreadyFound; j++)
                 {
-                    if (CodeLines[j].Contains(CSClasses[i].Name) && Name != CSClasses[i].Name)
+                    if (
+                        CodeLines[j].Contains(CSClasses[i].Name) && Name != CSClasses[i].Name)
+
                     {
                         //Debug.WriteLine(Name + " uses " + CSClasses[i].Name);
                         associations.Add(CSClasses[i]);
