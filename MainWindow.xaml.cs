@@ -186,23 +186,26 @@ namespace CodeAnalyzer
 
             Histogram1.AxisX.Clear();
             Axis axis = new Axis();
+
+            int numClasses = 25;
+
             if (toggled)
             {
-                SortedList = CSClassController.GetAllCSClasses(true, false);
+                SortedList = CSClassController.GetTopCSClasses(true, false, numClasses);
                 axis.Title = "Associations";
             }
             else
             {
-                SortedList = CSClassController.GetAllCSClasses(false, true);
+                SortedList = CSClassController.GetTopCSClasses(false, true, numClasses);
                 axis.Title = "LOC";
             }
             Histogram1.AxisX.Add(axis);
 
-            for (int i = SortedList.Count < 25 ? SortedList.Count - 1 : 24; i >= 0; i--)
+            for (int i = SortedList.Count < numClasses ? SortedList.Count - 1 : numClasses - 1; i >= 0; i--)
             {
                 if (toggled)
                 {
-                    int numAssociations = SortedList[i].GetAssociationsInListOfCSClasses(SortedList).Count;
+                    int numAssociations = SortedList[i].GetAssociationsInListOfCSClasses(CSClassRepository.GetAllCSClasses()).Count;
                     if (numAssociations > 0)
                     {
                         Values.Add(numAssociations);
