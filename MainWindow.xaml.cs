@@ -185,41 +185,21 @@ namespace CodeAnalyzer
             names.Clear();
 
             Histogram1.AxisX.Clear();
-            Axis axis = new Axis();
-
-            int numClasses = 25;
-
-            if (toggled)
+            Axis axis = new Axis
             {
-                SortedList = CSClassController.GetTopCSClasses(true, false, numClasses);
-                axis.Title = "Associations";
-            }
-            else
-            {
-                SortedList = CSClassController.GetTopCSClasses(false, true, numClasses);
-                axis.Title = "LOC";
-            }
+                Title = toggled ? "Associations" : "LOC"
+            };
             Histogram1.AxisX.Add(axis);
 
+            int numClasses = 25;
+            SortedList = toggled ? CSClassController.GetTopCSClasses(true, false, numClasses) : CSClassController.GetTopCSClasses(false, true, numClasses);
             for (int i = SortedList.Count < numClasses ? SortedList.Count - 1 : numClasses - 1; i >= 0; i--)
             {
-                if (toggled)
+                int vals = toggled ? SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count : SortedList[i].CountLOC();
+                if (vals > 0)
                 {
-                    int numAssociations = SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count;
-                    if (numAssociations > 0)
-                    {
-                        Values.Add(numAssociations);
-                        names.Add(SortedList[i].Name);
-                    }
-                }
-                else
-                {
-                    int numLOC = SortedList[i].CountLOC();
-                    if (numLOC > 0)
-                    {
-                        Values.Add(numLOC);
-                        names.Add(SortedList[i].Name);
-                    }
+                    Values.Add(vals);
+                    names.Add(SortedList[i].Name);
                 }
             }
 
