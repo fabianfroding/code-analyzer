@@ -55,7 +55,7 @@ namespace CodeAnalyzer
 
         private static string CreateHtmlJSONDataContent()
         {
-            List<CSClass> csClasses = CSClassController.GetAllCSClasses(false, false);
+            List<CSClass> csClasses = CSClassController.GetAllCSClasses();
 
             string htmlContent = 
                 "<script>\n" +

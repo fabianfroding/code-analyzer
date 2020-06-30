@@ -7,18 +7,9 @@ namespace CodeAnalyzer.Controllers
 {
     public static class CSClassController
     {
-        public static List<CSClass> GetAllCSClasses(bool sortByAssociations, bool sortByLOC)
+        public static List<CSClass> GetAllCSClasses()
         {
-            List<CSClass> classes = CSClassRepository.GetAllCSClasses();
-            if (sortByAssociations)
-            {
-                classes = classes.OrderByDescending(o => o.GetAssociationsInListOfCSClasses(classes).Count).ToList();
-            }
-            if (sortByLOC)
-            {
-                classes = classes.OrderByDescending(o => o.CountLOC()).ToList();
-            }
-            return classes;
+            return CSClassRepository.GetAllCSClasses();
         }
 
         public static List<CSClass> GetTopCSClasses(bool sortByAssociations, bool sortByLOC, int numClasses)
