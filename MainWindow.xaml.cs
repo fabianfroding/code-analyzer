@@ -234,17 +234,15 @@ namespace CodeAnalyzer
 
         private void RowChart_ChartOnDataClick(object sender, ChartPoint p)
         {
-            CSClass _CSClass = null;
+            CSClass _CSClass = SortedList[SortedList.Count - 1 - p.Key];
 
-            // TODO: Implement logic to get corrent class
-
-            /*Window window = new Window
+            Window window = new Window
             {
                 Title = _CSClass.Name,
                 Content = new CSClassView(_CSClass)
             };
 
-            window.ShowDialog();*/
+            window.ShowDialog();
         }
 
     }
