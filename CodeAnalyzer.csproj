@@ -73,6 +73,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\CSClassController.cs" />
+    <Compile Include="Controllers\LiveChartsController.cs" />
     <Compile Include="CSClassesTooltip.xaml.cs">
       <DependentUpon>CSClassesTooltip.xaml</DependentUpon>
     </Compile>
