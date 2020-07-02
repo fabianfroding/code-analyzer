@@ -192,7 +192,7 @@ namespace CodeAnalyzer
 
             int numClasses = 25;
             SortedList = toggled ? CSClassController.GetTopCSClasses(true, false, numClasses) : CSClassController.GetTopCSClasses(false, true, numClasses);
-            for (int i = SortedList.Count - 1; i >= 0; i--)
+            for (int i = 0; i < SortedList.Count; i++)
             {
                 int vals = toggled ? SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count : SortedList[i].CountLOC();
                 Values.Add(vals);
@@ -230,7 +230,7 @@ namespace CodeAnalyzer
 
         private void RowChart_ChartOnDataClick(object sender, ChartPoint p)
         {
-            CSClass _CSClass = SortedList[SortedList.Count - 1 - p.Key];
+            CSClass _CSClass = SortedList[p.Key];
 
             Window window = new Window
             {

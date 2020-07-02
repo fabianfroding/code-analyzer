@@ -40,12 +40,8 @@ namespace CodeAnalyzer.Controllers
                 }
             }
 
+            topClasses.Reverse();
             return topClasses;
-        }
-
-        public static CSClass GetCSClassByName(string name)
-        {
-            return CSClassRepository.GetCSClassByName(name);
         }
 
         public static CSClass GetCSClassByIndex(int index)
