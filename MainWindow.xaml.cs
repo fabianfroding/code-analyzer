@@ -134,7 +134,6 @@ namespace CodeAnalyzer
                 RowChart_PlotData(false);
                 ToggledAssociationsLOC = true;
             }
-            
         }
 
         private void BTNAssociations_Click(object sender, RoutedEventArgs e)
@@ -196,11 +195,8 @@ namespace CodeAnalyzer
             for (int i = SortedList.Count - 1; i >= 0; i--)
             {
                 int vals = toggled ? SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count : SortedList[i].CountLOC();
-                if (vals > 0)
-                {
-                    Values.Add(vals);
-                    names.Add(SortedList[i].Name);
-                }
+                Values.Add(vals);
+                names.Add(SortedList[i].Name);
             }
 
             if (RowSeries != null)
@@ -235,7 +231,6 @@ namespace CodeAnalyzer
         private void RowChart_ChartOnDataClick(object sender, ChartPoint p)
         {
             CSClass _CSClass = SortedList[SortedList.Count - 1 - p.Key];
-            Debug.WriteLine(SortedList.Count - 1 - p.Key);
 
             Window window = new Window
             {

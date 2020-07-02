@@ -20,15 +20,24 @@ namespace CodeAnalyzer.Controllers
             if (sortByAssociations)
             {
                 classes = classes.OrderByDescending(o => o.GetAssociationsInListOfCSClasses(classes).Count).ToList();
+                for (int i = 0; i < classes.Count && i < numClasses; i++)
+                {
+                    if (classes[i].GetAssociationsInListOfCSClasses(classes).Count > 0)
+                    {
+                        topClasses.Add(classes[i]);
+                    }
+                }
             }
             if (sortByLOC)
             {
                 classes = classes.OrderByDescending(o => o.CountLOC()).ToList();
-            }
-
-            for (int i = 0; i < classes.Count && i < numClasses; i++)
-            {
-                topClasses.Add(classes[i]);
+                for (int i = 0; i < classes.Count && i < numClasses; i++)
+                {
+                    if (classes[i].CountLOC() > 0)
+                    {
+                        topClasses.Add(classes[i]);
+                    }
+                }
             }
 
             return topClasses;
