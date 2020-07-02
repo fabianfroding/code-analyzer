@@ -65,7 +65,7 @@ namespace CodeAnalyzer
             return lineCount;
         }
 
-        public List<CSClass> GetAssociationsInListOfCSClasses(List<CSClass> CSClasses)
+        public List<CSClass> GetAssociationsInList(List<CSClass> CSClasses)
         {
             List<CSClass> associations = new List<CSClass>();
 
@@ -75,11 +75,8 @@ namespace CodeAnalyzer
 
                 for (int j = 0; j < CodeLines.Count && !associationAlreadyFound; j++)
                 {
-                    if (
-                        CodeLines[j].Contains(CSClasses[i].Name) && Name != CSClasses[i].Name)
-
+                    if (CodeLines[j].Contains(CSClasses[i].Name) && Name != CSClasses[i].Name)
                     {
-                        //Debug.WriteLine(Name + " uses " + CSClasses[i].Name);
                         associations.Add(CSClasses[i]);
                         associationAlreadyFound = true;
                     }

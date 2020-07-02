@@ -161,7 +161,7 @@ namespace CodeAnalyzer
 
             foreach (CSClass _CSClass in CSClassController.GetAllCSClasses())
             {
-                _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses());
+                _CSClass.GetAssociationsInList(CSClassController.GetAllCSClasses());
                 _CSClass.CountLOC();
                 CSClasses.Add(_CSClass);
             }
@@ -194,7 +194,7 @@ namespace CodeAnalyzer
             SortedList = toggled ? CSClassController.GetTopCSClasses(true, false, numClasses) : CSClassController.GetTopCSClasses(false, true, numClasses);
             for (int i = 0; i < SortedList.Count; i++)
             {
-                int vals = toggled ? SortedList[i].GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses()).Count : SortedList[i].CountLOC();
+                int vals = toggled ? SortedList[i].GetAssociationsInList(CSClassController.GetAllCSClasses()).Count : SortedList[i].CountLOC();
                 Values.Add(vals);
                 names.Add(SortedList[i].Name);
             }

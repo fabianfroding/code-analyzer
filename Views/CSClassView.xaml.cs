@@ -15,7 +15,7 @@ namespace CodeAnalyzer
 
         public void SetProperties(CSClass _CSClass)
         {
-            List<CSClass> associations = _CSClass.GetAssociationsInListOfCSClasses(CSClassController.GetAllCSClasses());
+            List<CSClass> associations = _CSClass.GetAssociationsInList(CSClassController.GetAllCSClasses());
 
             TextBoxName.Text = _CSClass.Name;
             TextBoxLOC.Text = "LOC: " + _CSClass.CountLOC();

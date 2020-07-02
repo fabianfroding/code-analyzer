@@ -19,10 +19,10 @@ namespace CodeAnalyzer.Controllers
 
             if (sortByAssociations)
             {
-                classes = classes.OrderByDescending(o => o.GetAssociationsInListOfCSClasses(classes).Count).ToList();
+                classes = classes.OrderByDescending(o => o.GetAssociationsInList(classes).Count).ToList();
                 for (int i = 0; i < classes.Count && i < numClasses; i++)
                 {
-                    if (classes[i].GetAssociationsInListOfCSClasses(classes).Count > 0)
+                    if (classes[i].GetAssociationsInList(classes).Count > 0)
                     {
                         topClasses.Add(classes[i]);
                     }
