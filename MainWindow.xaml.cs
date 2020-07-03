@@ -192,12 +192,8 @@ namespace CodeAnalyzer
 
             int numClasses = 25;
             SortedList = toggled ? CSClassController.GetTopCSClasses(true, false, numClasses) : CSClassController.GetTopCSClasses(false, true, numClasses);
-            for (int i = 0; i < SortedList.Count; i++)
-            {
-                int vals = toggled ? SortedList[i].GetAssociationsInList(CSClassController.GetAllCSClasses()).Count : SortedList[i].CountLOC();
-                Values.Add(vals);
-                names.Add(SortedList[i].Name);
-            }
+            Values.AddRange(toggled ? CSClassController.GetTopAssociations(numClasses) : CSClassController.GetTopLOC(numClasses));
+            names.AddRange(toggled ? CSClassController.GetTopCSClassNames(true, false, numClasses) : CSClassController.GetTopCSClassNames(false, true, numClasses));
 
             if (RowSeries != null)
             {
