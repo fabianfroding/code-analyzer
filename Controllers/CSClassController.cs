@@ -12,31 +12,33 @@ namespace CodeAnalyzer.Controllers
             return CSClassRepository.GetAllCSClasses();
         }
 
-        public static List<CSClass> GetTopCSClasses(bool sortByAssociations, bool sortByLOC, int numClasses)
+        public static List<CSClass> GetTopCSClassesByAssociations(int numClasses)
         {
-            List<CSClass> classes = CSClassRepository.GetAllCSClasses();
+            List<CSClass> classes = GetAllCSClasses().OrderByDescending(o => o.GetAssociationsInList(GetAllCSClasses()).Count).ToList();
             List<CSClass> topClasses = new List<CSClass>();
 
-            if (sortByAssociations)
+            for (int i = 0; i < classes.Count && i < numClasses; i++)
             {
-                classes = classes.OrderByDescending(o => o.GetAssociationsInList(classes).Count).ToList();
-                for (int i = 0; i < classes.Count && i < numClasses; i++)
+                if (classes[i].GetAssociationsInList(classes).Count > 0)
                 {
-                    if (classes[i].GetAssociationsInList(classes).Count > 0)
-                    {
-                        topClasses.Add(classes[i]);
-                    }
+                    topClasses.Add(classes[i]);
                 }
             }
-            if (sortByLOC)
+
+            topClasses.Reverse();
+            return topClasses;
+        }
+
+        public static List<CSClass> GetTopCSClassesByLOC(int numClasses)
+        {
+            List<CSClass> classes = GetAllCSClasses().OrderByDescending(o => o.CountLOC()).ToList();
+            List<CSClass> topClasses = new List<CSClass>();
+
+            for (int i = 0; i < classes.Count && i < numClasses; i++)
             {
-                classes = classes.OrderByDescending(o => o.CountLOC()).ToList();
-                for (int i = 0; i < classes.Count && i < numClasses; i++)
+                if (classes[i].CountLOC() > 0)
                 {
-                    if (classes[i].CountLOC() > 0)
-                    {
-                        topClasses.Add(classes[i]);
-                    }
+                    topClasses.Add(classes[i]);
                 }
             }
 
@@ -86,31 +88,33 @@ namespace CodeAnalyzer.Controllers
             return values;
         }
 
-        public static List<string> GetTopCSClassNames(bool sortByAssociations, bool sortByLOC, int numNames)
+        public static List<string> GetTopCSClassNamesByAssociations(int numNames)
         {
-            List<CSClass> classes = CSClassRepository.GetAllCSClasses();
+            List<CSClass> classes = GetAllCSClasses().OrderByDescending(o => o.GetAssociationsInList(GetAllCSClasses()).Count).ToList();
             List<string> topNames = new List<string>();
 
-            if (sortByAssociations)
+            for (int i = 0; i < classes.Count && i < numNames; i++)
             {
-                classes = classes.OrderByDescending(o => o.GetAssociationsInList(classes).Count).ToList();
-                for (int i = 0; i < classes.Count && i < numNames; i++)
+                if (classes[i].GetAssociationsInList(classes).Count > 0)
                 {
-                    if (classes[i].GetAssociationsInList(classes).Count > 0)
-                    {
-                        topNames.Add(classes[i].Name);
-                    }
+                    topNames.Add(classes[i].Name);
                 }
             }
-            if (sortByLOC)
+
+            topNames.Reverse();
+            return topNames;
+        }
+
+        public static List<string> GetTopCSClassNamesByLOC(int numNames)
+        {
+            List<CSClass> classes = GetAllCSClasses().OrderByDescending(o => o.CountLOC()).ToList();
+            List<string> topNames = new List<string>();
+
+            for (int i = 0; i < classes.Count && i < numNames; i++)
             {
-                classes = classes.OrderByDescending(o => o.CountLOC()).ToList();
-                for (int i = 0; i < classes.Count && i < numNames; i++)
+                if (classes[i].CountLOC() > 0)
                 {
-                    if (classes[i].CountLOC() > 0)
-                    {
-                        topNames.Add(classes[i].Name);
-                    }
+                    topNames.Add(classes[i].Name);
                 }
             }
 
