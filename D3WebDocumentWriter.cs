@@ -65,23 +65,15 @@ namespace CodeAnalyzer
             // Generate JSON data for each class
             for (int i = 0; i < csClasses.Count; i++)
             {
-                if (csClasses[i].GetAssociationsInList(csClasses).Count > 0)
+                htmlContent += "{ \"id\": \"" + csClasses[i].Name + "\", \"group\": 1 }";
+                if (i == csClasses.Count - 1)
                 {
-                    htmlContent += "{ \"id\": \"" + csClasses[i].Name + "\", \"group\": 1 }";
-                    if (i == csClasses.Count - 1)
-                    {
-                        htmlContent += "\n";
-                    }
-                    else
-                    {
-                        htmlContent += ",\n";
-                    }
+                    htmlContent += "\n";
                 }
                 else
                 {
-                    Debug.WriteLine(csClasses[i].Name + " 0 assoc");
+                    htmlContent += ",\n";
                 }
-                
             }
 
             htmlContent += 
@@ -94,7 +86,7 @@ namespace CodeAnalyzer
                 List<CSClass> associations = csClasses[i].GetAssociationsInList(csClasses);
                 for (int j = 0; j < associations.Count; j++)
                 {
-                    htmlContent += "{\"source\": \"" + csClasses[i].Name + "\", \"target\": \"" + associations[j].Name + "\", \"value\": 1 }";
+                    htmlContent += "{\"source\": \"" + csClasses[i].Name + "\", \"target\": \"" + associations[j].Name + "\"}";
                     if (i == csClasses.Count - 1 && j == associations.Count)
                     {
                         htmlContent += "\n";

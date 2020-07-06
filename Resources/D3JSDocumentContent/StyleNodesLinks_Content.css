@@ -1,11 +1,11 @@
 ﻿<style>
     .links line {
         stroke: #eee;
-        stroke-opacity: 0.6;
+        stroke-opacity: 0.3;
     }
 
     .nodes circle {
         stroke: #6df4e9;
-        stroke-width: 1.5px;
+        stroke-width: 1px;
     }
 </style>
