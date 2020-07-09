@@ -86,15 +86,19 @@ namespace CodeAnalyzer
                 List<CSClass> associations = csClasses[i].GetAssociationsInList(csClasses);
                 for (int j = 0; j < associations.Count; j++)
                 {
-                    htmlContent += "{\"source\": \"" + csClasses[i].Name + "\", \"target\": \"" + associations[j].Name + "\"}";
-                    if (i == csClasses.Count - 1 && j == associations.Count)
+                    if (csClasses[i].GetAssociationsInList(csClasses).Count > 0)
                     {
-                        htmlContent += "\n";
+                        htmlContent += "{\"source\": \"" + csClasses[i].Name + "\", \"target\": \"" + associations[j].Name + "\"}";
+                        if (i == csClasses.Count - 1 && j == associations.Count)
+                        {
+                            htmlContent += "\n";
+                        }
+                        else
+                        {
+                            htmlContent += ",\n";
+                        }
                     }
-                    else
-                    {
-                        htmlContent += ",\n";
-                    }
+                    
                 }
             }
 
