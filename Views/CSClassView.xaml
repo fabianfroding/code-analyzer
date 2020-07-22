@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:CodeAnalyzer"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
-    <Grid Background="#002c3A">
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="23" Margin="56,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White" Background="Transparent" TextDecorations="Underline"/>
-        <TextBox x:Name="TextBoxLOC" HorizontalAlignment="Left" Height="23" Margin="56,91,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
-        <TextBox x:Name="TextBoxAssociations" HorizontalAlignment="Left" Height="23" Margin="56,135,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
-        <ListBox x:Name="ListBox1" HorizontalAlignment="Left" Height="378" Margin="217,46,0,0" VerticalAlignment="Top" Width="196" Foreground="#DDFFFFFF"/>
-
+    <Grid Background="#002c3A" Margin="-199,0,-234,0">
+        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="23" Margin="251,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White" Background="Transparent" TextDecorations="Underline"/>
+        <TextBox x:Name="TextBoxLOC" HorizontalAlignment="Left" Height="23" Margin="251,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
+        <TextBox x:Name="TextBoxAssociations" HorizontalAlignment="Left" Height="23" Margin="251,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
+        <ListBox x:Name="ListBox1" HorizontalAlignment="Left" Height="282" Margin="239,158,0,0" VerticalAlignment="Top" Width="196" Foreground="#DDFFFFFF"/>
+        <Grid Margin="440,30,32,10">
+            <WebBrowser Name="webBrowser" Margin="1,0,0.333,0"/>
+        </Grid>
     </Grid>
 </UserControl>

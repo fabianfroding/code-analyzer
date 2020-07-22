@@ -48,6 +48,31 @@ namespace CodeAnalyzer
             }
         }
 
+        public static void CreateJSDocumentForClass(string path, CSClass csClass)
+        {
+            File.WriteAllText(path, String.Empty);
+
+            using (FileStream fs = File.OpenWrite(path))
+            {
+                byte[] b;
+
+                for (int i = 0; i < FILE_NAMES.Length; i++)
+                {
+                    if (i == 6)
+                    {
+                        b = new UTF8Encoding(true).GetBytes(CreateHtmlJSONDataContentForClass(csClass));
+                        fs.Write(b, 0, b.Length);
+                    }
+                    else
+                    {
+                        b = new UTF8Encoding(true).GetBytes(GetFileContent(FILE_NAMES[i]));
+                        fs.Write(b, 0, b.Length);
+                    }
+
+                }
+            }
+        }
+
         private static string GetFileContent(string fileName)
         {
             return new StreamReader(PATH + fileName).ReadToEnd();
@@ -99,6 +124,65 @@ namespace CodeAnalyzer
                         }
                     }
                     
+                }
+            }
+
+            htmlContent +=
+                "]\n" +
+                "};\n" +
+                "</script>";
+
+            return htmlContent;
+        }
+
+        private static string CreateHtmlJSONDataContentForClass(CSClass csClass)
+        {
+            List<CSClass> associations = csClass.GetAssociationsInList(CSClassController.GetAllCSClasses());
+            associations.Add(csClass);
+
+            string htmlContent =
+                "<script>\n" +
+                "var tempdata = {\n" +
+                "\"nodes\": [\n";
+
+
+            // Generate JSON data for each associated class of the csClass
+            for (int i = 0; i < associations.Count; i++)
+            {
+                htmlContent += "{ \"id\": \"" + associations[i].Name + "\", \"group\": 1 }";
+                if (i == associations.Count - 1)
+                {
+                    htmlContent += "\n";
+                }
+                else
+                {
+                    htmlContent += ",\n";
+                }
+            }
+
+            htmlContent +=
+                "],\n" +
+                "\"links\": [\n";
+
+            // Generate JSON data for each association in each association of the csClass
+            for (int i = 0; i < associations.Count; i++)
+            {
+                List<CSClass> innerAssociations = associations[i].GetAssociationsInList(associations);
+                for (int j = 0; j < innerAssociations.Count; j++)
+                {
+                    if (associations[i].GetAssociationsInList(associations).Count > 0)
+                    {
+                        htmlContent += "{\"source\": \"" + associations[i].Name + "\", \"target\": \"" + associations[j].Name + "\"}";
+                        if (i == associations.Count - 1 && j == associations.Count)
+                        {
+                            htmlContent += "\n";
+                        }
+                        else
+                        {
+                            htmlContent += ",\n";
+                        }
+                    }
+
                 }
             }
 
