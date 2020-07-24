@@ -6,13 +6,28 @@
              xmlns:local="clr-namespace:CodeAnalyzer"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="500">
-    <Grid Background="#002c3A" Margin="-199,0,-234,0">
-        <TextBox x:Name="TextBoxName" HorizontalAlignment="Left" Height="23" Margin="251,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White" Background="Transparent" TextDecorations="Underline"/>
-        <TextBox x:Name="TextBoxLOC" HorizontalAlignment="Left" Height="23" Margin="251,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
-        <TextBox x:Name="TextBoxAssociations" HorizontalAlignment="Left" Height="23" Margin="251,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True" Foreground="White"/>
-        <ListBox x:Name="ListBox1" HorizontalAlignment="Left" Height="282" Margin="239,158,0,0" VerticalAlignment="Top" Width="196" Foreground="#DDFFFFFF"/>
-        <Grid Margin="440,30,32,10">
-            <WebBrowser Name="webBrowser" Margin="1,0,0.333,0"/>
-        </Grid>
+    <Grid x:Name="GridLayout" Background="#002c3A">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TextBoxName" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="Auto" Foreground="White" Background="Transparent" TextDecorations="Underline">
+            Name</TextBlock>
+        <TextBlock x:Name="TextBoxLOC" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,30,0,0" Width="Auto" Foreground="White" Background="Transparent" TextDecorations="Underline">
+            LOC</TextBlock>
+        <TextBlock x:Name="TextBoxAssociations" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,50,0,0" Width="100" Foreground="White" Background="Transparent" TextDecorations="Underline">
+            Associations</TextBlock>
+
+        <ListBox x:Name="AssociationsList" Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"
+                 HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Foreground="#DDFFFFFF"/>
+
+        <WebBrowser Name="webBrowser" Grid.Column="2" Grid.RowSpan="3"/>
     </Grid>
 </UserControl>

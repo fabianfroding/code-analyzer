@@ -32,3 +32,5 @@ C:\Users\Fabian\Projects\CodeAnalyzer\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer.csproj.CoreCompileInputs.cache
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\App.baml
 C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\CodeAnalyzer_Content.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\MockView.g.cs
+C:\Users\Fabian\Projects\CodeAnalyzer\obj\Debug\Views\MockView.baml

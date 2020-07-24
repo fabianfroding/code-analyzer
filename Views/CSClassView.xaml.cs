@@ -25,7 +25,7 @@ namespace CodeAnalyzer
             TextBoxAssociations.Text = "Associations: " + associations.Count;
             foreach (CSClass csClass in associations)
             {
-                ListBox1.Items.Add(csClass.Name);
+                AssociationsList.Items.Add(csClass.Name);
             }
         }
 

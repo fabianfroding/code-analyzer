@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Fabian\Projects\CodeAnalyzer\App.xaml
-3656983780
+4553393619
 81026604131
-12913410707
+132112557193
 201809237404
-CSClassesTooltip.xaml;Views\CSClassView.xaml;MainWindow.xaml;
+CSClassesTooltip.xaml;Views\CSClassView.xaml;MainWindow.xaml;Views\MockView.xaml;
 
 False
 

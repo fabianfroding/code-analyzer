@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="CodeAnalyzer.Views.MockView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CodeAnalyzer.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="GridLayout" Background="#002c3A">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TextBoxName" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10" Width="100" Foreground="White" Background="Transparent" TextDecorations="Underline">
+            Name</TextBlock>
+        <TextBlock x:Name="TextBoxLOC" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,31,0,0" Width="100" Foreground="White" Background="Transparent" TextDecorations="Underline">
+            LOC</TextBlock>
+        <TextBlock x:Name="TextBoxAssociations" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" Width="100" Foreground="White" Background="Transparent" TextDecorations="Underline">
+            Associations</TextBlock>
+
+        <ListBox x:Name="AssociationsList" Grid.Column="1" Grid.RowSpan="2"
+                 HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Foreground="#DDFFFFFF"/>
+
+        <WebBrowser Name="webBrowser" Grid.Column="2" Grid.RowSpan="2" Width="Auto"/>
+
+    </Grid>
+</UserControl>
