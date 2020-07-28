@@ -51,6 +51,11 @@ namespace CodeAnalyzer.Controllers
             return CSClassRepository.GetCSClassByIndex(index);
         }
 
+        public static CSClass GetCSClassByName(string name)
+        {
+            return CSClassRepository.GetCSClassByName(name);
+        }
+
         public static List<int> GetTopAssociations(int numValues)
         {
             List<CSClass> classes = CSClassRepository.GetAllCSClasses();

@@ -1,7 +1,9 @@
 ﻿using CodeAnalyzer.Controllers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace CodeAnalyzer
@@ -25,7 +27,12 @@ namespace CodeAnalyzer
             TextBoxAssociations.Text = "Associations: " + associations.Count;
             foreach (CSClass csClass in associations)
             {
-                AssociationsList.Items.Add(csClass.Name);
+                ListBoxItem lbi = new ListBoxItem
+                {
+                    Content = csClass.Name
+                };
+                lbi.Selected += AssociationListBoxItem_Click;
+                AssociationsList.Items.Add(lbi);
             }
         }
 
@@ -35,6 +42,30 @@ namespace CodeAnalyzer
             D3WebDocumentWriter.CreateJSDocumentForClass(path, csClass);
 
             webBrowser.Navigate(new Uri(String.Format("file:///{0}/{1}", Directory.GetCurrentDirectory(), path)));
+        }
+
+        private void AssociationListBoxItem_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxItem lbi = e.Source as ListBoxItem;
+            CSClass _CSClass = null;
+
+            if (lbi != null)
+            {
+                _CSClass = CSClassController.GetCSClassByName(lbi.Content.ToString());
+                Window window = new Window
+                {
+                    Title = _CSClass.Name,
+                    Content = new CSClassView(_CSClass)
+                };
+
+                window.ShowDialog();
+            }
+            else
+            {
+                Debug.WriteLine("Error getting clicked class.");
+            }
+
+            
         }
     }
 }
