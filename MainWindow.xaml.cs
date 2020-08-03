@@ -23,6 +23,8 @@ namespace CodeAnalyzer
         public Func<int, string> Formatter { get; set; }
         public List<string> names { get; set; }
         private RowSeries RowSeries;
+
+        // Flag for displaying associations or LOC in the row chart view.
         private bool ToggledAssociationsLOC = true;
         private List<CSClass> SortedList;
 
@@ -181,8 +183,10 @@ namespace CodeAnalyzer
         {
             ChartValues<int> Values = new ChartValues<int>();
             SortedList = new List<CSClass>();
+            // Clear previous names so the old names dont remain and display the new values.
             names.Clear();
 
+            // Clear axis values to remove old values.
             Histogram1.AxisX.Clear();
             Axis axis = new Axis
             {
@@ -190,6 +194,7 @@ namespace CodeAnalyzer
             };
             Histogram1.AxisX.Add(axis);
 
+            // Get the correct sorted list from the controller.
             int numClasses = 25;
             SortedList = toggled ? CSClassController.GetTopCSClassesByAssociations(numClasses) : CSClassController.GetTopCSClassesByLOC(numClasses);
             Values.AddRange(toggled ? CSClassController.GetTopAssociations(numClasses) : CSClassController.GetTopLOC(numClasses));

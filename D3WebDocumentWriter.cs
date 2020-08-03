@@ -7,6 +7,11 @@ using System.Text;
 
 namespace CodeAnalyzer
 {
+    // Class to generate a webpgage for the web-browser control
+    // Generates sections of a page to dynamically display data in a force-directed graph.
+
+    // Methods with ForClass-affix refers to the force-dir graph for specific class window.
+
     static class D3WebDocumentWriter
     {
         private static readonly string PATH = @"..\..\Resources\D3JSDocumentContent\";
@@ -24,6 +29,7 @@ namespace CodeAnalyzer
 
         public static void CreateJSDocument(string path)
         {
+            // Create empty file.
             File.WriteAllText(path, String.Empty);
 
             using (FileStream fs = File.OpenWrite(path))
@@ -78,6 +84,7 @@ namespace CodeAnalyzer
             return new StreamReader(PATH + fileName).ReadToEnd();
         }
 
+        // Method for the dynamic data generation.
         private static string CreateHtmlJSONDataContent()
         {
             List<CSClass> csClasses = CSClassController.GetAllCSClasses();

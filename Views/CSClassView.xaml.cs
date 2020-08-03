@@ -18,6 +18,7 @@ namespace CodeAnalyzer
             GenerateForceDirectedGraph(_CSClass);
         }
 
+        // Set the display properties of the class.
         public void SetProperties(CSClass _CSClass)
         {
             List<CSClass> associations = _CSClass.GetAssociationsInList(CSClassController.GetAllCSClasses());
@@ -36,14 +37,17 @@ namespace CodeAnalyzer
             }
         }
 
+        // Create the web browser content to display the force directed graph of the associations of the class.
         private void GenerateForceDirectedGraph(CSClass csClass)
         {
             string path = @"..\..\Resources\ForceDirectedGraph.html";
             D3WebDocumentWriter.CreateJSDocumentForClass(path, csClass);
 
+            // Navigate to the generated content using web browser control.
             webBrowser.Navigate(new Uri(String.Format("file:///{0}/{1}", Directory.GetCurrentDirectory(), path)));
         }
 
+        // Link to new class window if an association is clicked.
         private void AssociationListBoxItem_Click(object sender, RoutedEventArgs e)
         {
             ListBoxItem lbi = e.Source as ListBoxItem;

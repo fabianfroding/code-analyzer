@@ -46,6 +46,7 @@ namespace CodeAnalyzer.Repositories
         }
 
         //=============== Private Methods ===============//
+        // Recursive method to get files in sub-directories.
         private static List<FileInfo> GetCSFilesInSubDirectories(string dirPath)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
@@ -66,6 +67,7 @@ namespace CodeAnalyzer.Repositories
             return csFiles;
         }
 
+        // Method to generate CSClass-classes based on the files found.
         private static void GenerateCSClasses()
         {
             if (CSFiles.Count != 0)
