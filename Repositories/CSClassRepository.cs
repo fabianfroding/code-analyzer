@@ -7,13 +7,12 @@ namespace CodeAnalyzer.Repositories
     static class CSClassRepository
     {
         private static List<CSClass> CSClasses;
-        private static List<FileInfo> CSFiles;
 
         //=============== Public Methods ===============//
         public static void GetCSFilesInDirectory(string dirPath)
         {
-            CSFiles = GetCSFilesInSubDirectories(dirPath);
-            GenerateCSClasses();
+            // Fills the CSClasses list.
+            GenerateCSClasses(GetCSFilesInSubDirectories(dirPath));
         }
 
         public static List<CSClass> GetAllCSClasses()
@@ -67,13 +66,14 @@ namespace CodeAnalyzer.Repositories
             return csFiles;
         }
 
-        // Method to generate CSClass-classes based on the files found.
-        private static void GenerateCSClasses()
+        // Method to generate CSClass-classes based on a list of files.
+        // Populates the CSClasses list.
+        private static void GenerateCSClasses(List<FileInfo> csFiles)
         {
-            if (CSFiles.Count != 0)
+            if (csFiles.Count != 0)
             {
                 CSClasses = new List<CSClass>();
-                foreach (FileInfo fi in CSFiles)
+                foreach (FileInfo fi in csFiles)
                 {
                     CSClass _CSClass = new CSClass(fi.Name.Replace(".cs", ""))
                     {
