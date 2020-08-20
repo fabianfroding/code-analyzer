@@ -38,11 +38,12 @@ namespace CodeAnalyzer
             InitializeComponent();
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
-            ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
-            Histogram1.DataClick += RowChart_ChartOnDataClick;
-
             SeriesCollection = new SeriesCollection();
             names = new List<string>();
+
+            // Setup click-interactives for the charts.
+            ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
+            Histogram1.DataClick += RowChart_ChartOnDataClick;
         }
 
         //============================================================
@@ -110,6 +111,10 @@ namespace CodeAnalyzer
 
             ScatterPlot1.Visibility = Visibility.Visible;
             ScatterPlot1.IsEnabled = true;
+
+            BTNScatterPlot.IsEnabled = false;
+            BTNRowChart.IsEnabled = true;
+            BTNForceDirectedGraph.IsEnabled = true;
         }
 
         private void BTNHistogram_Cick(object sender, RoutedEventArgs e)
@@ -122,6 +127,10 @@ namespace CodeAnalyzer
             Histogram1.Visibility = Visibility.Visible;
             Histogram1.IsEnabled = true;
             BTNToggleAssociatonsLOC.Visibility = Visibility.Visible;
+
+            BTNScatterPlot.IsEnabled = true;
+            BTNRowChart.IsEnabled = false;
+            BTNForceDirectedGraph.IsEnabled = true;
         }
 
         private void BTNToggleAssociatonsLOC_Click(object sender, RoutedEventArgs e)
@@ -146,6 +155,10 @@ namespace CodeAnalyzer
             Histogram1.IsEnabled = false;
             Histogram1.Visibility = Visibility.Hidden;
             BTNToggleAssociatonsLOC.Visibility = Visibility.Hidden;
+
+            BTNScatterPlot.IsEnabled = true;
+            BTNRowChart.IsEnabled = true;
+            BTNForceDirectedGraph.IsEnabled = false;
 
             string path = @"..\..\Resources\ForceDirectedGraph.html";
             D3WebDocumentWriter.CreateJSDocument(path);
