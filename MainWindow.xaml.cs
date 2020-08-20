@@ -83,7 +83,7 @@ namespace CodeAnalyzer
             fbd.Description = "Select Project Directory";
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                CSClassRepository.GetCSFilesInDirectory(fbd.SelectedPath);
+                CSClassController.GetCSFilesInDirectory(fbd.SelectedPath);
                 RowChart_PlotData(false);
                 ToggledAssociationsLOC = true;
                 ScatterPlot_PlotData();

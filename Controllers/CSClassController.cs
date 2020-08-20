@@ -7,6 +7,11 @@ namespace CodeAnalyzer.Controllers
 {
     public static class CSClassController
     {
+        public static void GetCSFilesInDirectory(string dirPath)
+        {
+            CSClassRepository.GetCSFilesInDirectory(dirPath);
+        }
+
         public static List<CSClass> GetAllCSClasses()
         {
             return CSClassRepository.GetAllCSClasses();
