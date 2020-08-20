@@ -21,11 +21,13 @@ namespace CodeAnalyzer
         // Row chart properties.
         public SeriesCollection SeriesCollection { get; set; }
         public Func<int, string> Formatter { get; set; }
-        public List<string> names { get; set; }
+        public List<string> Names { get; set; }
         private RowSeries RowSeries;
 
         // Flag for displaying associations or LOC in the row chart view.
         private bool ToggledAssociationsLOC = true;
+
+        // List populated by controller sort-filter-methods.
         private List<CSClass> SortedList;
 
         //============================================================
@@ -39,7 +41,7 @@ namespace CodeAnalyzer
 
             CSClasses = new ChartValues<CSClass>(); // Init here to allow mapper to refer to the same instance of the chart values.
             SeriesCollection = new SeriesCollection();
-            names = new List<string>();
+            Names = new List<string>();
 
             // Setup click-interactives for the charts.
             ScatterPlot1.DataClick += ScatterPlot_ChartOnDataClick;
@@ -197,7 +199,7 @@ namespace CodeAnalyzer
             ChartValues<int> Values = new ChartValues<int>();
             SortedList = new List<CSClass>();
             // Clear previous names so the old names dont remain and display the new values.
-            names.Clear();
+            Names.Clear();
 
             // Clear axis values to remove old values.
             Histogram1.AxisX.Clear();
@@ -211,7 +213,7 @@ namespace CodeAnalyzer
             int numClasses = 25;
             SortedList = toggled ? CSClassController.GetTopCSClassesByAssociations(numClasses) : CSClassController.GetTopCSClassesByLOC(numClasses);
             Values.AddRange(toggled ? CSClassController.GetTopAssociations(numClasses) : CSClassController.GetTopLOC(numClasses));
-            names.AddRange(toggled ? CSClassController.GetTopCSClassNamesByAssociations(numClasses) : CSClassController.GetTopCSClassNamesByLOC(numClasses));
+            Names.AddRange(toggled ? CSClassController.GetTopCSClassNamesByAssociations(numClasses) : CSClassController.GetTopCSClassNamesByLOC(numClasses));
 
             if (RowSeries != null)
             {
@@ -231,6 +233,8 @@ namespace CodeAnalyzer
 
         private void ScatterPlot_ChartOnDataClick(object sender, ChartPoint p)
         {
+            // Get the position of the item in the list,
+            // since the scatter plot is populated in the same order as the list that it is based on.
             CSClass _CSClass = CSClassController.GetCSClassByIndex(p.Key);
 
             Window window = new Window

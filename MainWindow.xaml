@@ -62,7 +62,7 @@
                                 <lvc:Axis Title="LOC" LabelFormatter="{Binding Formatter}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="Classes" Labels="{Binding names}">
+                                <lvc:Axis Title="Classes" Labels="{Binding Names}">
                                     <lvc:Axis.Separator>
                                         <lvc:Separator IsEnabled="False" Step="1"></lvc:Separator>
                                     </lvc:Axis.Separator>

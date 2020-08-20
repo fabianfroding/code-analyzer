@@ -32,6 +32,7 @@ namespace CodeAnalyzer.Repositories
             return null;
         }
 
+        // Returns the position of an item in the list.
         public static CSClass GetCSClassByIndex(int index)
         {
             for (int i = 0; i < CSClasses.Count; i++)
